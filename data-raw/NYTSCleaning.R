@@ -94,14 +94,14 @@ nyts <- nyts %>%
          took_them = ifelse(if_any(c(QN20AG, QN20BG, QN20CG),  ~ . == 1), 1, 0),
          some_other_way = ifelse(if_any(c(QN20AH, QN20BH, QN20CH),  ~ . == 1), 1, 0))
 
-nyts$bought_myself[nyts$e_cigs == 0 & nyts$cigarettes == 0 & nyts$cigars == 0] <- 0
-nyts$had_someone_else_buy[nyts$e_cigs == 0 & nyts$cigarettes == 0 & nyts$cigars == 0] <- 0
-nyts$asked_someone_to_give_me_some[nyts$e_cigs == 0 & nyts$cigarettes == 0 & nyts$cigars == 0] <- 0
-nyts$someone_offered[nyts$e_cigs == 0 & nyts$cigarettes == 0 & nyts$cigars == 0] <- 0
-nyts$got_from_a_friend[nyts$e_cigs == 0 & nyts$cigarettes == 0 & nyts$cigars == 0] <- 0
-nyts$got_from_a_family_member[nyts$e_cigs == 0 & nyts$cigarettes == 0 & nyts$cigars == 0] <- 0
-nyts$took_them[nyts$e_cigs == 0 & nyts$cigarettes == 0 & nyts$cigars == 0] <- 0
-nyts$some_other_way[nyts$e_cigs == 0 & nyts$cigarettes == 0 & nyts$cigars == 0] <- 0
+nyts$bought_myself[nyts$num_e_cigs == 0 & nyts$num_cigarettes == 0 & nyts$num_cigars == 0] <- 0
+nyts$had_someone_else_buy[nyts$num_e_cigs == 0 & nyts$num_cigarettes == 0 & nyts$num_cigars == 0] <- 0
+nyts$asked_someone_to_give_me_some[nyts$num_e_cigs == 0 & nyts$num_cigarettes == 0 & nyts$num_cigars == 0] <- 0
+nyts$someone_offered[nyts$num_e_cigs == 0 & nyts$num_cigarettes == 0 & nyts$num_cigars == 0] <- 0
+nyts$got_from_a_friend[nyts$num_e_cigs == 0 & nyts$num_cigarettes == 0 & nyts$num_cigars == 0] <- 0
+nyts$got_from_a_family_member[nyts$num_e_cigs == 0 & nyts$num_cigarettes == 0 & nyts$num_cigars == 0] <- 0
+nyts$took_them[nyts$num_e_cigs == 0 & nyts$num_cigarettes == 0 & nyts$num_cigars == 0] <- 0
+nyts$some_other_way[nyts$num_e_cigs == 0 & nyts$num_cigarettes == 0 & nyts$num_cigars == 0] <- 0
 
 
 # clean where they bought them
@@ -119,18 +119,18 @@ nyts <- nyts %>%
          bought_from_smoke_shop = ifelse(if_any(c(QN21AK, QN21BK, QN21CK),  ~ . == 1), 1, 0),
          bought_elsewhere = ifelse(if_any(c(QN21AL, QN21BL, QN21CL),  ~ . == 1), 1, 0))
 
-nyts$did_not_buy[nyts$e_cigs == 0 & nyts$cigarettes == 0 & nyts$cigars == 0] <- 1
-nyts$bought_from_someone[nyts$e_cigs == 0 & nyts$cigarettes == 0 & nyts$cigars == 0] <- 0
-nyts$bought_from_gas_station[nyts$e_cigs == 0 & nyts$cigarettes == 0 & nyts$cigars == 0] <- 0
-nyts$bought_from_grocery_store[nyts$e_cigs == 0 & nyts$cigarettes == 0 & nyts$cigars == 0] <- 0
-nyts$bought_from_drugstore[nyts$e_cigs == 0 & nyts$cigarettes == 0 & nyts$cigars == 0] <- 0
-nyts$bought_from_mall[nyts$e_cigs == 0 & nyts$cigarettes == 0 & nyts$cigars == 0] <- 0
-nyts$bought_from_vending_machine[nyts$e_cigs == 0 & nyts$cigarettes == 0 & nyts$cigars == 0] <- 0
-nyts$bought_from_internet[nyts$e_cigs == 0 & nyts$cigarettes == 0 & nyts$cigars == 0] <- 0
-nyts$bought_through_mail[nyts$e_cigs == 0 & nyts$cigarettes == 0 & nyts$cigars == 0] <- 0
-nyts$bought_through_delivery[nyts$e_cigs == 0 & nyts$cigarettes == 0 & nyts$cigars == 0] <- 0
-nyts$bought_from_smoke_shop[nyts$e_cigs == 0 & nyts$cigarettes == 0 & nyts$cigars == 0] <- 0
-nyts$bought_elsewhere[nyts$e_cigs == 0 & nyts$cigarettes == 0 & nyts$cigars == 0] <- 0
+nyts$did_not_buy[nyts$num_e_cigs == 0 & nyts$num_cigarettes == 0 & nyts$num_cigars == 0] <- 1
+nyts$bought_from_someone[nyts$num_e_cigs == 0 & nyts$num_cigarettes == 0 & nyts$num_cigars == 0] <- 0
+nyts$bought_from_gas_station[nyts$num_e_cigs == 0 & nyts$num_cigarettes == 0 & nyts$num_cigars == 0] <- 0
+nyts$bought_from_grocery_store[nyts$num_e_cigs == 0 & nyts$num_cigarettes == 0 & nyts$num_cigars == 0] <- 0
+nyts$bought_from_drugstore[nyts$num_e_cigs == 0 & nyts$num_cigarettes == 0 & nyts$num_cigars == 0] <- 0
+nyts$bought_from_mall[nyts$num_e_cigs == 0 & nyts$num_cigarettes == 0 & nyts$num_cigars == 0] <- 0
+nyts$bought_from_vending_machine[nyts$num_e_cigs == 0 & nyts$num_cigarettes == 0 & nyts$num_cigars == 0] <- 0
+nyts$bought_from_internet[nyts$num_e_cigs == 0 & nyts$num_cigarettes == 0 & nyts$num_cigars == 0] <- 0
+nyts$bought_through_mail[nyts$num_e_cigs == 0 & nyts$num_cigarettes == 0 & nyts$num_cigars == 0] <- 0
+nyts$bought_through_delivery[nyts$num_e_cigs == 0 & nyts$num_cigarettes == 0 & nyts$num_cigars == 0] <- 0
+nyts$bought_from_smoke_shop[nyts$num_e_cigs == 0 & nyts$num_cigarettes == 0 & nyts$num_cigars == 0] <- 0
+nyts$bought_elsewhere[nyts$num_e_cigs == 0 & nyts$num_cigarettes == 0 & nyts$num_cigars == 0] <- 0
 
 nyts$bought_from_someone[nyts$did_not_buy == 1] <- 0
 nyts$bought_from_gas_station[nyts$did_not_buy == 1] <- 0
