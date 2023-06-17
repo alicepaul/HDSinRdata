@@ -361,7 +361,7 @@ for(i in 1:nrow(final_df)){
   } else {
     final_df$HYP[i] = 0
   }
-} else if(!is.na(final_df$BPQ020[i]) & !is.na(final_df$BPQ040A[i]) & (final_df$BPQ020[i] == 1 | final_df$BPQ040A[i] == 1)){
+} else if(!is.na(final_df$BPQ020[i]) & !is.na(final_df$BtabPQ040A[i]) & (final_df$BPQ020[i] == 1 | final_df$BPQ040A[i] == 1)){
   final_df$HYP[i] = 1
 } else {
   if(final_df$SBP[i] >= 130 | final_df$DBP[i] >= 80){
@@ -374,6 +374,7 @@ for(i in 1:nrow(final_df)){
 
 #alc recode levels
 final_df$alc <- ifelse(final_df$ALQ120Q > 0 | final_df$ALQ121 %in% c(1:10), "Yes", "No")
+
 #smoking recode levels
 final_df <- final_df %>%
   unite("smoke", SMQ020:SMQ040, na.rm = TRUE, remove = FALSE)
