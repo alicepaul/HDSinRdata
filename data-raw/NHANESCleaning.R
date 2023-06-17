@@ -116,9 +116,6 @@ bmx_2015$YEAR <- 2015
 bmx_2017 <- nhanes("BMX_J")
 bmx_2017$YEAR <- 2017
 
-nhanesTables('Q', 1999)
-nhanesTableVars('Q', "SMQ")
-
 
 # Smoking info
 smq_1999 <- nhanes("SMQ")
@@ -254,6 +251,7 @@ final_df <- final_df %>%
            "SMAQUEX2", "SMQ020", "SMQ040", "SMQ050Q", "BPQ020", "BPQ040A", "BPQ050A", "YEAR"))
 
 # filter out rows with no values
+
 final_df <- final_df %>%
   filter(!is.na(LBXBPB)) %>%
   filter(!is.na(BPXDI1) | !is.na(BPXDI2) | !is.na(BPXDI3) | !is.na(BPXDI4)) %>%
@@ -274,15 +272,18 @@ lod_table <- data.frame(
   year = c(1999:2002, 2003:2004, 2005:2012, 2013:2016, 2017:2018),
   lod = c(rep(0.3, 4), rep(0.28, 2), rep(0.25, 8), rep(0.07, 4), rep(0.05, 2))
 )
+
 # function to replace values below the LOD
 replace_below_lod <- function(x, lod) {
   ifelse(x < lod, lod / sqrt(2), x)
 }
+
 # loop through each year and replace values below the LOD
 for (year in unique(final_df$YEAR)) {
   lod <- lod_table$lod[lod_table$year == year]
   final_df$lead[final_df$YEAR == year] <- replace_below_lod(final_df$LBXBPB[final_df$YEAR == year], lod)
 }
+
 final_df <- final_df %>%
   rename("BMI"= "BMXBMI",
          "sex" = "RIAGENDR",
@@ -298,18 +299,23 @@ final_df <- final_df %>%
          "SBP2" = "BPXSY2",
          "SBP3" = "BPXSY3",
          "SBP4" = "BPXSY4")
-#Education Level column with groupings
+
+#Education level column with groupings
 final_df$education <- as.factor(final_df$education)
 final_df$education <- factor(final_df$education, levels = 1:5, labels = c("LessThanHS", "LessThanHS", "HS", "MoreThanHS", "MoreThanHS"))
+
 #Race column renamed
 final_df$race <- as.factor(final_df$race)
 final_df$race <- factor(final_df$race, levels = 1:5, labels = c("Mexican American", "Other Hispanic", "Non-Hispanic White", "Non-Hispanic Black", "Other Race"))
+
 #Gender column renamed
 final_df$sex <- as.factor(final_df$sex)
 final_df$sex <- factor(final_df$sex, levels = 1:2, labels = c("Male", "Female"))
 final_df$age <- as.numeric(final_df$age)
+
 #BMI category
 final_df$BMIcat <- cut(final_df$BMI, c(-Inf, 25, 30, Inf), labels = c("BMI<=25", "25<BMI<30", "BMI>=30"))
+
 #BP groupings
 for(i in 1:nrow(final_df)){
   final_df$DBP[i] <- ifelse(is.na(final_df$DBP4[i]),
@@ -346,6 +352,7 @@ for(i in 1:nrow(final_df)){
                                                  mean(final_df$SBP3[i], final_df$SBP4[i], na.rm = TRUE)))))
 
 }
+
 #add column that details whether patient has hypertension
 for(i in 1:nrow(final_df)){
   if(is.na(final_df$BPQ020[i]) | is.na(final_df$BPQ040A[i])) {
@@ -379,45 +386,6 @@ NHANESsample <- final_df
 
 NHANESsample <- NHANESsample %>% select(SEQN, age, sex, race, education, income, smoke, YEAR, lead, BMIcat, DBP, quantile, SBP, HYP, alc)
 NHANESsample <- NHANESsample %>% rename(id = SEQN, year = YEAR, bmi_cat = BMIcat, dbp = DBP, lead_quantile = quantile, sbp = SBP, hyp = HYP)
-
-
- # ("Respondent sequence number",
- #                        "Lead (ug/dL)",
- #                        "Diastolic:  Blood pressure (first reading) mm Hg",
- #                        "Diastolic: Blood pressure (second reading) mm Hg",
- #                        "Diastolic: Blood pressure (third reading) mm Hg",
- #                        "Diastolic:  Blood pressure (fourth reading if necessary) mm Hg",
- #                        "Systolic:  Blood pressure (first reading) mm Hg",
- #                        "Systolic:  Blood pressure (second reading) mm Hg",
- #                        "Systolic:  Blood pressure (third reading) mm Hg",
- #                        "Systolic:  Blood pressure (fourth reading if necessary) mm Hg",
- #                        "Best age in years of the sample person at time of HH screening.  Individuals 85 and over are topcoded at 85 years of age.",
- #                        "Gender of the sample person",
- #                        "Recode of reported race and ethnicity information.",
- #                        "(SP Interview Version) What is the highest grade or level of school {you have/SP has} completed or the highest degree {you have/",
- #                        "Poverty income ratio (PIR) - a ratio of family income to poverty threshold",
- #                        "Total family income",
- #                        "Total household income",
- #                        "Had at least 12 alocholic drinks/1 year",
- #                        "In {your/SP's} entire life, {have you/has he/ has she} had at least 12 drinks of any type of alcoholic beverage?",
- #                        "In the past 12 months, how often did {you/SP} drink any type of alcoholic beverage? PROBE: How many days per week, per month, or",
- #                        "UNIT OF MEASURE for previous question",
- #                        "During the past 12 months, about how often did {you/SP} drink any type of alcoholic beverage? PROBE: How many days per week, per month, or per year did {you/SP} drink?",
- #                        "In the past 12 months, on those days that {you/SP} drank alcoholic beverages, on the average, how many drinks did {you/he/she} have",
- #                        "In the past 12 months, on how many days did {you/SP} have {DISPLAY NUMBER} or more drinks of any alcoholic beverage?",
- #                        "UNIT OF MEASURE for previous question",
- #                        "Was there ever a time or times in {your/SP's} life when {you/he/she} drank {DISPLAY NUMBER} or more drinks of any kind of alcoholic beverage almost every day?",
- #                        "During the past 30 days, how many times did {you/SP} drink {DISPLAY NUMBER} or more drinks of any kind of alcohol in about two hours?",
- #                        "Body Mass Index (kg/m**2)",
- #                        "Questionnaire Mode Flag",
- #                        "Smoked at least 100 cigarettes in life",
- #                        "Do you now smoke cigarettes",
- #                        "How long since quit smoking cigarettes",
- #                        "Ever told you had high blood pressure",
- #                        "Taking prescription for hypertension",
- #                        "Now taking prescribed medicine for HBP",
- #                        "Year")
-
 
 #save
 usethis::use_data(NHANESsample, overwrite = TRUE)
