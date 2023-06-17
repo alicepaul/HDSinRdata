@@ -20,12 +20,22 @@ library(tidyverse)
 #write.csv(covidcases, "uscovidcases.csv", row.names = F)
 
 covidcases <- read.csv("uscovidcases.csv")
+covidcases <- covidcases %>% filter(!is.na(confirmed))
 
 # get daily cases
-covidcases <- covidcases %>% mutate(daily_cases = confirmed - lag(confirmed))
+covidcases <- covidcases %>% group_by(administrative_area_level_2, administrative_area_level_3) %>% mutate(daily_cases = confirmed - lag(confirmed))
 
 # get daily deaths
-covidcases <- covidcases %>% mutate(daily_deaths = deaths - lag(deaths))
+covidcases <- covidcases %>% group_by(administrative_area_level_2, administrative_area_level_3) %>% mutate(daily_deaths = deaths - lag(deaths))
+
+for (i in 1:nrow(covidcases)) {
+  if (is.na(covidcases$daily_cases[i])) {
+    covidcases$daily_cases[i] <- covidcases$confirmed[i]
+  }
+  if (is.na(covidcases$daily_deaths[i])) {
+    covidcases$daily_deaths[i] <- covidcases$deaths[i]
+  }
+}
 
 # rename columns
 covidcases <- covidcases %>% rename(state = administrative_area_level_2, city = administrative_area_level_3)
