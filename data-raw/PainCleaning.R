@@ -1,3 +1,4 @@
+library(tidyverse)
 library(readxl)
 
 ##### Pain Data #####
@@ -6,9 +7,8 @@ library(readxl)
 pain <- read_excel("journal.pone.0254862.s005.sheet1.xlsx")
 names(pain)[2:75] <- paste("X", names(pain)[2:75], sep = "")
 names(pain)[90:163] <- paste("X", gsub("\\s*\\([^\\)]+\\)", "", names(pain)[90:163]), ".follow_up.", sep = "")
-names(pain)[165:175] <- paste(gsub("\\s*\\([^\\)]+\\)", "", names(pain)[165:175]), ".follow_up.", sep = "")
+names(pain)[c(165:173, 175)] <- paste(gsub("\\s*\\([^\\)]+\\)", "", names(pain)[c(165:173, 175)]), ".follow_up.", sep = "")
 names(pain)[182] <- "RECODE.of.FULLBODY_CLUSTER..FULLBODY_CLUSTER."
-
 pain <- pain %>% select(-c(IMPRESSION_PAINCENTERIMPACT,
                            IMPRESSION_TREATMENTIMPACT,
                            X101.follow_up.:X238.follow_up.,
@@ -24,6 +24,7 @@ pain <- pain %>% select(-c(IMPRESSION_PAINCENTERIMPACT,
                            lnBODYREGIONSUMfollowup,
                            PROMIS_PHYSICAL_FUNCTION.follow_up.:IMPRESSION_PAINCENTERIMPACT.follow_up.,
                            BODYREGIONSUM.follow_up.,
+                           BODYREGIONSUM,
                            PAIN_CHANGE_prepost,
                            PAIN_CHANGE_fraction))
 
