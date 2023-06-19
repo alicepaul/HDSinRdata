@@ -49,6 +49,7 @@ NHANESsample
 \description{
 Lead, blood pressure, and demographic variables from NHANES 1999-2018, downloaded from the nhanesA package and
 chosen in an effort to replicate the analyses conducted by
-\url{https://www.frontiersin.org/articles/10.3389/fpubh.2022.836357/full}.
+\url{https://www.frontiersin.org/articles/10.3389/fpubh.2022.836357/full}. Data was filtered to adults 20 years of age
+or older with nonimissing blood lead level, blood pressure, and demographic information.
 }
 \keyword{datasets}
