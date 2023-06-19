@@ -2,15 +2,14 @@ Package: RforHDSdata
 Type: Package
 Title: Data Package for the 'R for Health Data Science' Online Textbook
 Version: 0.1.0
-Authors@R: c(
-    person(given = "Alice",
-           family = "Paul",
-           role = c("aut", "cre"),
-           email = "alice_paul@brown.edu"),
-    person(given = "Joanna",
+Authors@R: c(person(given = "Joanna",
            family = "Walsh",
            role = c("aut", "cre"),
-           email = "joanna_walsh@brown.edu"))
+           email = "joanna_walsh@brown.edu"),
+    person(given = "Alice",
+           family = "Paul",
+           role = c("aut"),
+           email = "alice_paul@brown.edu"))
 Maintainer: Joanna Walsh <joanna_walsh@brown.edu>
 Description: Seven datasets used in the chapters and exercises of the 'R for Health Data Science' Online Textbook
     Use four spaces when indenting paragraphs within the Description.
