@@ -6,7 +6,7 @@
 \title{Data from Alter et al. (2021): Hierarchical Clustering by Patient-Reported Pain Distribution Alone Identifies Distinct
 Chronic Pain Subgroups Differing by Pain Intensity, Quality, and Clinical Outcomes}
 \format{
-A data frame with 21,659 rows and 93 variables.
+A data frame with 21,659 rows and 93 variables. Data and variable descriptions were downloaded from the "S1 Dataset".
 \describe{
   \item{PATIENT_NUM}{Deidentified study identification number}
   \item{X101-X238}{Body Region Selected = 1; not selected = 0}
@@ -23,7 +23,6 @@ A data frame with 21,659 rows and 93 variables.
   \item{BMI}{Body Mass Index at baseline extracted from EMR}
   \item{CCI_TOTAL_SCORE}{Charlson Comorbidity Index extracted from EMR}
   \item{PAIN_INTENSITY_AVERAGE.follow_up}{Pain intensity NRS at follow up (range 0 - 10)}
-  \item{BODYREGIONSUM}{Number of body regions selected on the body map}
   \item{PAT_SEX}{Patient reported gender, "male" or "female", derived from EMR}
   \item{PAT_RACE}{Patient reported race, 17 categories, EMR derived}
   \item{CCI_bin}{Binary Charlson Comorbidity Index: "No comorbidity" CCI score = 0; "Any comorbidity" CCI score > 0}

@@ -1,0 +1,2 @@
+load("/Users/joannawalsh/Desktop/RforHDSdata/data/covidcases.rda")
+load("/Users/joannawalsh/Desktop/RforHDSdata/data/breastcancer.rda")
