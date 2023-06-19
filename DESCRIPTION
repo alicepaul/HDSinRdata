@@ -16,6 +16,7 @@ Description: Seven datasets used in the chapters and exercises of the 'R for Hea
 License: Artistic-2.0
 Encoding: UTF-8
 LazyData: true
+LazyDataCompression: xz
 Depends: 
     R (>= 2.10)
 RoxygenNote: 7.2.1
