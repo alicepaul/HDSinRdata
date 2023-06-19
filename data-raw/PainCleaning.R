@@ -9,6 +9,7 @@ names(pain)[2:75] <- paste("X", names(pain)[2:75], sep = "")
 names(pain)[90:163] <- paste("X", gsub("\\s*\\([^\\)]+\\)", "", names(pain)[90:163]), ".follow_up.", sep = "")
 names(pain)[c(165:173, 175)] <- paste(gsub("\\s*\\([^\\)]+\\)", "", names(pain)[c(165:173, 175)]), ".follow_up.", sep = "")
 names(pain)[182] <- "RECODE.of.FULLBODY_CLUSTER..FULLBODY_CLUSTER."
+names(pain)[88] <- "PAIN_INTENSITY_AVERAGE.follow_up"
 pain <- pain %>% select(-c(IMPRESSION_PAINCENTERIMPACT,
                            IMPRESSION_TREATMENTIMPACT,
                            X101.follow_up.:X238.follow_up.,
