@@ -68,6 +68,11 @@ mobility$county <- na_if(mobility$county, "")
 usethis::use_data(mobility, overwrite = TRUE)
 
 ## Lockdown Data ##
+library(openxlsx)
 lockdowndates <- read_excel("LockdownData.xlsx")
+
+lockdowndates$Lockdown_Start[lockdowndates$Lockdown_Start != "None"] <- as.character(convertToDate(as.numeric(lockdowndates$Lockdown_Start[lockdowndates$Lockdown_Start != "None"])))
+lockdowndates$Lockdown_End[lockdowndates$Lockdown_End != "None"] <- as.character(convertToDate(as.numeric(lockdowndates$Lockdown_End[lockdowndates$Lockdown_End != "None"])))
+
 usethis::use_data(lockdowndates, overwrite = TRUE)
 

@@ -4,7 +4,7 @@
 #'
 #' @format A data frame with 494,856 rows and 7 variables:
 #' \describe{
-#'   \item{date}{Date in YEAR-MM-DD format}
+#'   \item{date}{Date in YYYY-MM-DD format}
 #'   \item{state}{State (originally admin1)}
 #'   \item{county}{County (originally admin2)}
 #'   \item{fips}{FIPS code, a standard geographic identifier, to make it easier to combine this data with other data sets.}
