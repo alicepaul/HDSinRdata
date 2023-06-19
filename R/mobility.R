@@ -1,0 +1,22 @@
+#' Data for Mobility Changes in Response to COVID-19
+#'
+#' 2020 mobility statistics at the state and county level from Descartes Labs.
+#'
+#' @format A data frame with 494,856 rows and 7 variables:
+#' \describe{
+#'   \item{date}{Date in YEAR-MM-DD format}
+#'   \item{state}{State (originally admin1)}
+#'   \item{county}{County (originally admin2)}
+#'   \item{fips}{FIPS code, a standard geographic identifier, to make it easier to combine this data with other data sets.}
+#'   \item{samples}{The number of samples observed in the specified region.}
+#'   \item{m50}{The median of the max-distance mobility (representing the distance a typical member of a given population
+#'   moves in a day) for all samples in the specified region.}
+#'   \item{m50_index}{The percent of normal m50 in the region, with normal m50 defined during 2020-02-17 to 2020-03-07.}
+#' }
+#'
+#' Note from the data website: Data for 2020-04-20, 2020-05-29, 2020-10-08, 2020-12-11 through 2020-12-18,
+#' 2021-01-08 through 2021-01-14, 2021-04-07, 2021-04-12 and 2021-04-21 to present did not meet quality control
+#' standards, and was not released.
+#'
+#' @source \url{https://github.com/descarteslabs/DL-COVID-19}
+"mobility"
