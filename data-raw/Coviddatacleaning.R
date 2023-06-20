@@ -54,9 +54,9 @@ for (i in 1:nrow(covidcases)) {
 
 # rename columns
 covidcases <- covidcases %>% rename(state = administrative_area_level_2,
-                                    city = administrative_area_level_3)
+                                    county = administrative_area_level_3)
 covidcases <- covidcases %>% select(-c(confirmed, deaths))
-covidcases$city <- na_if(covidcases$city, "")
+covidcases$county <- na_if(covidcases$county, "")
 
 # save
 usethis::use_data(covidcases, overwrite = TRUE)
