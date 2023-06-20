@@ -112,8 +112,7 @@ descriptions were downloaded from the "S1 Dataset".
 \if{html}{Here is a key for the coded body pain regions
 (S2 Fig from the linked paper):
 
-  \out{<div style="text-align: center">}\figure{bodypainmap.png}
-  {options: style="width:200px;max-width:50\%;"}\out{</div>}
+  \out{<div style="text-align: center">}\figure{bodypainmap.png}\out{</div>}
 
 }
 \if{latex}{Here is a key for the coded body pain regions
