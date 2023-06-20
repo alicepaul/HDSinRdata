@@ -109,12 +109,15 @@ descriptions were downloaded from the "S1 Dataset".
   \item{MEDICAID_BIN}{Medicaid payor: "yes" or "no"}
 }
 
-\if{html}{Here is a key for the coded body pain regions:
+\if{html}{Here is a key for the coded body pain regions
+(S2 Fig from the linked paper):
 
-  \out{<div style="text-align: center">}\figure{bodypainmap.png}{options: style="width:750px;max-width:75\%;"}\out{</div>}
+  \out{<div style="text-align: center">}\figure{bodypainmap.png}
+  {options: style="width:750px;max-width:75\%;"}\out{</div>}
 
 }
-\if{latex}{Here is a key for the coded body pain regions:
+\if{latex}{Here is a key for the coded body pain regions
+(S2 Fig from the linked paper):
 
   \out{\begin{center}}\figure{bodypainmap.png}\out{\end{center}}
 

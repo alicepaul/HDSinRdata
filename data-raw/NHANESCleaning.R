@@ -245,10 +245,12 @@ final_df <- df_1999 %>%
 
 # filter out unnecessary rows
 final_df <- final_df %>%
-  select(c("SEQN","LBXBPB", "BPXDI1", "BPXDI2", "BPXDI3", "BPXDI4", "BPXSY1", "BPXSY2", "BPXSY3", "BPXSY4",
-           "RIDAGEYR", "RIAGENDR", "RIDRETH1", "DMDEDUC2", "INDFMPIR", "INDFMIN2", "INDHHIN2",
-           "ALQ101", "ALQ110", "ALQ120Q", "ALQ120U", "ALQ121", "ALQ130", "ALQ141Q", "ALQ141U", "ALQ151", "ALQ160", "BMXBMI",
-           "SMAQUEX2", "SMQ020", "SMQ040", "SMQ050Q", "BPQ020", "BPQ040A", "BPQ050A", "YEAR"))
+  select(c("SEQN","LBXBPB", "BPXDI1", "BPXDI2", "BPXDI3", "BPXDI4", "BPXSY1",
+           "BPXSY2", "BPXSY3", "BPXSY4", "RIDAGEYR", "RIAGENDR", "RIDRETH1",
+           "DMDEDUC2", "INDFMPIR", "INDFMIN2", "INDHHIN2", "ALQ101", "ALQ110",
+           "ALQ120Q", "ALQ120U", "ALQ121", "ALQ130", "ALQ141Q", "ALQ141U",
+           "ALQ151", "ALQ160", "BMXBMI", "SMAQUEX2", "SMQ020", "SMQ040",
+           "SMQ050Q", "BPQ020", "BPQ040A", "BPQ050A", "YEAR"))
 
 # filter out rows with no values
 
@@ -281,7 +283,8 @@ replace_below_lod <- function(x, lod) {
 # loop through each year and replace values below the LOD
 for (year in unique(final_df$YEAR)) {
   lod <- lod_table$lod[lod_table$year == year]
-  final_df$lead[final_df$YEAR == year] <- replace_below_lod(final_df$LBXBPB[final_df$YEAR == year], lod)
+  final_df$lead[final_df$YEAR == year] <- replace_below_lod(
+    final_df$LBXBPB[final_df$YEAR == year], lod)
 }
 
 final_df <- final_df %>%
@@ -302,91 +305,146 @@ final_df <- final_df %>%
 
 #Education level column with groupings
 final_df$education <- as.factor(final_df$education)
-final_df$education <- factor(final_df$education, levels = 1:5, labels = c("LessThanHS", "LessThanHS", "HS", "MoreThanHS", "MoreThanHS"))
+final_df$education <- factor(final_df$education, levels = 1:5,
+                             labels = c("LessThanHS",
+                                        "LessThanHS",
+                                        "HS",
+                                        "MoreThanHS",
+                                        "MoreThanHS"))
 
 #Race column renamed
 final_df$race <- as.factor(final_df$race)
-final_df$race <- factor(final_df$race, levels = 1:5, labels = c("Mexican American", "Other Hispanic", "Non-Hispanic White", "Non-Hispanic Black", "Other Race"))
+final_df$race <- factor(final_df$race, levels = 1:5,
+                        labels = c("Mexican American",
+                                   "Other Hispanic",
+                                   "Non-Hispanic White",
+                                   "Non-Hispanic Black",
+                                   "Other Race"))
 
 #Gender column renamed
 final_df$sex <- as.factor(final_df$sex)
-final_df$sex <- factor(final_df$sex, levels = 1:2, labels = c("Male", "Female"))
+final_df$sex <- factor(final_df$sex, levels = 1:2,
+                       labels = c("Male",
+                                  "Female"))
 final_df$age <- as.numeric(final_df$age)
 
 #BMI category
-final_df$BMIcat <- cut(final_df$BMI, c(-Inf, 25, 30, Inf), labels = c("BMI<=25", "25<BMI<30", "BMI>=30"))
+final_df$BMIcat <- cut(final_df$BMI, c(-Inf, 25, 30, Inf),
+                       labels = c("BMI<=25",
+                                  "25<BMI<30",
+                                  "BMI>=30"))
 
 #BP groupings
 for(i in 1:nrow(final_df)){
   final_df$DBP[i] <- ifelse(is.na(final_df$DBP4[i]),
                             ifelse(is.na(final_df$DBP3[i]),
-                                   ifelse(is.na(final_df$DBP2[i]), final_df$DBP1[i], final_df$DBP2[i]),
+                                   ifelse(is.na(final_df$DBP2[i]),
+                                          final_df$DBP1[i], final_df$DBP2[i]),
                                    final_df$DBP3[i]),
                             ifelse(is.na(final_df$DBP3[i]),
-                                   ifelse(!is.na(final_df$DBP2[i]) & !is.na(final_df$DBP1[i]),
-                                          mean(final_df$DBP2[i], final_df$DBP4[i], na.rm = TRUE), final_df$DBP4[i]),
-                                   ifelse(!is.na(final_df$DBP1[i]) & !is.na(final_df$DBP2[i]),
-                                          mean(final_df$DBP2[i], final_df$DBP3[i], final_df$DBP4[i], na.rm = TRUE),
-                                          ifelse(is.na(final_df$DBP1[i]) & is.na(final_df$DBP2[i]), final_df$DBP4[i],
-                                                 mean(final_df$DBP3[i], final_df$DBP4[i], na.rm = TRUE)))))
+                                   ifelse(!is.na(final_df$DBP2[i]) &
+                                            !is.na(final_df$DBP1[i]),
+                                          mean(final_df$DBP2[i],
+                                               final_df$DBP4[i], na.rm = TRUE),
+                                          final_df$DBP4[i]),
+                                   ifelse(!is.na(final_df$DBP1[i]) &
+                                            !is.na(final_df$DBP2[i]),
+                                          mean(final_df$DBP2[i],
+                                               final_df$DBP3[i],
+                                               final_df$DBP4[i], na.rm = TRUE),
+                                          ifelse(is.na(final_df$DBP1[i]) &
+                                                   is.na(final_df$DBP2[i]),
+                                                 final_df$DBP4[i],
+                                                 mean(final_df$DBP3[i],
+                                                      final_df$DBP4[i],
+                                                      na.rm = TRUE)))))
 
 }
 
 #BLL Quantiles
 quantiles <- quantile(final_df$lead, probs = c(0.25, 0.5, 0.75))
-final_df$quantile <- cut(final_df$lead, breaks = c(-Inf, quantiles, Inf), labels = c("Q1", "Q2", "Q3", "Q4"))
-
+final_df$quantile <- cut(final_df$lead, breaks = c(-Inf, quantiles, Inf),
+                         labels = c("Q1", "Q2", "Q3", "Q4"))
 
 #BP Calculations
 for(i in 1:nrow(final_df)){
   final_df$SBP[i] <- ifelse(is.na(final_df$SBP4[i]),
                             ifelse(is.na(final_df$SBP3[i]),
-                                   ifelse(is.na(final_df$SBP2[i]), final_df$SBP1[i], final_df$SBP2[i]),
+                                   ifelse(is.na(final_df$SBP2[i]),
+                                          final_df$SBP1[i], final_df$SBP2[i]),
                                    final_df$SBP3[i]),
                             ifelse(is.na(final_df$SBP3[i]),
-                                   ifelse(!is.na(final_df$SBP2[i]) & !is.na(final_df$SBP1[i]),
-                                          mean(final_df$SBP2[i], final_df$SBP4[i], na.rm = TRUE), final_df$SBP4[i]),
-                                   ifelse(!is.na(final_df$SBP1[i]) & !is.na(final_df$SBP2[i]),
-                                          mean(final_df$SBP2[i], final_df$SBP3[i], final_df$SBP4[i], na.rm = TRUE),
-                                          ifelse(is.na(final_df$SBP1[i]) & is.na(final_df$SBP2[i]), final_df$SBP4[i],
-                                                 mean(final_df$SBP3[i], final_df$SBP4[i], na.rm = TRUE)))))
+                                   ifelse(!is.na(final_df$SBP2[i]) &
+                                            !is.na(final_df$SBP1[i]),
+                                          mean(final_df$SBP2[i],
+                                               final_df$SBP4[i], na.rm = TRUE),
+                                          final_df$SBP4[i]),
+                                   ifelse(!is.na(final_df$SBP1[i]) &
+                                            !is.na(final_df$SBP2[i]),
+                                          mean(final_df$SBP2[i],
+                                               final_df$SBP3[i],
+                                               final_df$SBP4[i], na.rm = TRUE),
+                                          ifelse(is.na(final_df$SBP1[i]) &
+                                                   is.na(final_df$SBP2[i]),
+                                                 final_df$SBP4[i],
+                                                 mean(final_df$SBP3[i],
+                                                      final_df$SBP4[i],
+                                                      na.rm = TRUE)))))
 
 }
 
 #add column that details whether patient has hypertension
 for(i in 1:nrow(final_df)){
   if(is.na(final_df$BPQ020[i]) | is.na(final_df$BPQ040A[i])) {
-  if(final_df$SBP[i] >= 130 | final_df$DBP[i] >= 80){
+    if(final_df$SBP[i] >= 130 | final_df$DBP[i] >= 80){
+      final_df$HYP[i] = 1
+    } else {
+      final_df$HYP[i] = 0
+    }
+  } else if(!is.na(final_df$BPQ020[i]) & !is.na(final_df$BPQ040A[i]) &
+            (final_df$BPQ020[i] == 1 | final_df$BPQ040A[i] == 1)){
     final_df$HYP[i] = 1
   } else {
-    final_df$HYP[i] = 0
+    if(final_df$SBP[i] >= 130 | final_df$DBP[i] >= 80){
+      final_df$HYP[i] = 1
+    } else {
+      final_df$HYP[i] = 0
+    }
   }
-} else if(!is.na(final_df$BPQ020[i]) & !is.na(final_df$BtabPQ040A[i]) & (final_df$BPQ020[i] == 1 | final_df$BPQ040A[i] == 1)){
-  final_df$HYP[i] = 1
-} else {
-  if(final_df$SBP[i] >= 130 | final_df$DBP[i] >= 80){
-    final_df$HYP[i] = 1
-  } else {
-    final_df$HYP[i] = 0
-  }
-}
 }
 
 #alc recode levels
-final_df$alc <- ifelse(final_df$ALQ120Q > 0 | final_df$ALQ121 %in% c(1:10), "Yes", "No")
+final_df$alc <- ifelse(final_df$ALQ120Q > 0 | final_df$ALQ121 %in% c(1:10),
+                       "Yes", "No")
 
 #smoking recode levels
 final_df <- final_df %>%
   unite("smoke", SMQ020:SMQ040, na.rm = TRUE, remove = FALSE)
-final_df$smoke[final_df$smoke == "1_1" | final_df$smoke == "1_2"] <- "StillSmoke"
+final_df$smoke[final_df$smoke == "1_1" |
+                 final_df$smoke == "1_2"] <- "StillSmoke"
 final_df$smoke[final_df$smoke == "1_3"] <- "QuitSmoke"
-final_df$smoke[final_df$smoke != "StillSmoke" & final_df$smoke != "QuitSmoke"] <- "NeverSmoke"
+final_df$smoke[final_df$smoke != "StillSmoke" &
+                 final_df$smoke != "QuitSmoke"] <- "NeverSmoke"
 final_df$smoke <- as.factor(final_df$smoke)
 
 NHANESsample <- final_df
 
-NHANESsample <- NHANESsample %>% select(SEQN, age, sex, race, education, income, smoke, YEAR, lead, BMIcat, DBP, quantile, SBP, HYP, alc)
-NHANESsample <- NHANESsample %>% rename(id = SEQN, year = YEAR, bmi_cat = BMIcat, dbp = DBP, lead_quantile = quantile, sbp = SBP, hyp = HYP)
+NHANESsample <- NHANESsample %>% select(SEQN, age, sex, race, education, income,
+                                        smoke, YEAR, lead, BMIcat,
+                                        quantile, HYP, alc, DBP1, DBP2,
+                                        DBP3, DBP4, SBP1, SBP2, SBP3, SBP4)
+NHANESsample <- NHANESsample %>% rename(ID = SEQN,
+                                        BMI_CAT = BMIcat,
+                                        LEAD_QUANTILE = quantile)
+
+NHANESsample <- NHANESsample %>% rename(AGE = age,
+                                        SEX = sex,
+                                        RACE = race,
+                                        EDUCATION = education,
+                                        INCOME = income,
+                                        SMOKE = smoke,
+                                        LEAD = lead,
+                                        ALC = alc)
 
 #save
 usethis::use_data(NHANESsample, overwrite = TRUE)
