@@ -3,7 +3,8 @@ library(utils)
 
 ##### BC Data #####
 
-#downloaded from https://archive.ics.uci.edu/dataset/15/breast+cancer+wisconsin+original (wdbc)
+#downloaded from
+# https://archive.ics.uci.edu/dataset/15/breast+cancer+wisconsin+original (wdbc)
 breastcancer <- read.table("wdbc.data", header = F, sep = ",")
 
 #name columns
