@@ -113,7 +113,7 @@ descriptions were downloaded from the "S1 Dataset".
 (S2 Fig from the linked paper):
 
   \out{<div style="text-align: center">}\figure{bodypainmap.png}
-  {options: style="width:750px;max-width:75\%;"}\out{</div>}
+  {options: style="width:200px;max-width:50\%;"}\out{</div>}
 
 }
 \if{latex}{Here is a key for the coded body pain regions
