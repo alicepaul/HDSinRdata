@@ -26,6 +26,8 @@ Guidotti, E., Ardia, D., (2020), "COVID-19 Data Hub",
 Journal of Open Source Software 5(51):2376, doi:10.21105/joss.02376"
 
 \url{https://cran.r-project.org/web/packages/COVID19/index.html}
+
+\url{https://covid19datahub.io/index.html}
 }
 \usage{
 covidcases
