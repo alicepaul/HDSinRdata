@@ -5,8 +5,7 @@
 \alias{covidcases}
 \title{US Covid Data from the Covid-19 Data Hub}
 \format{
-A data frame with 477,799 rows and 5 variables. Data and variable
-descriptions were downloaded from the "S1 Dataset".
+A data frame with 477,799 rows and 5 variables.
 \describe{
   \item{date}{Date in YYYY-MM-DD format}
   \item{state}{State (administrative_area_level_2 from Covid-19 Data Hub)}
@@ -25,6 +24,7 @@ descriptions were downloaded from the "S1 Dataset".
 \source{
 Guidotti, E., Ardia, D., (2020), "COVID-19 Data Hub",
 Journal of Open Source Software 5(51):2376, doi:10.21105/joss.02376"
+
 \url{https://cran.r-project.org/web/packages/COVID19/index.html}
 }
 \usage{
