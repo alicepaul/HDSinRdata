@@ -33,7 +33,7 @@ Journal of Open Source Software 5(51):2376, doi:10.21105/joss.02376"
 covidcases
 }
 \description{
-Daily confirmed Covid cases and deaths at the state and city level in 2020,
+Daily confirmed Covid-19 cases and deaths at the state and city level in 2020,
 downloaded from the COVID19 R package.
 }
 \keyword{datasets}

@@ -3,9 +3,7 @@
 \docType{data}
 \name{pain}
 \alias{pain}
-\title{Data from Alter et al. (2021): Hierarchical Clustering by Patient-Reported
-Pain Distribution Alone Identifies Distinct Chronic Pain Subgroups Differing
-by Pain Intensity, Quality, and Clinical Outcomes}
+\title{Data from Alter et al. (2021)'s Study on Patient-Reported Pain}
 \format{
 A data frame with 21,659 rows and 93 variables. Data and variable
 descriptions were downloaded from the "S1 Dataset".
@@ -131,6 +129,11 @@ medical record in the University of Pittsburgh's Patient Outcomes Repository
 for Treatment registry (PORT).
 }
 \source{
+Alter, B. J., Anderson, N. P., Gillman, A. G., Yin, Q., Jeong, J. H.,
+ & Wasan, A. D. (2021). Hierarchical clustering by patient-reported pain
+ distribution alone identifies distinct chronic pain subgroups differing by
+ pain intensity, quality, and clinical outcomes. PloS one, 16(8), e0254862.
+
 \url{https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0254862}
 }
 \usage{
