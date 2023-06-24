@@ -2,8 +2,7 @@
 #'
 #' Variables relating to demographic information, frequency of tobacco (e-cigs,
 #' cigarettes, and cigars) use, and methods of obtaining said tobacco as
-#' reported by students on the 2021 NYTS. Variables were defined in a similar
-#' manner to those in \url{https://pubmed.ncbi.nlm.nih.gov/36470692/}.
+#' reported by students on the 2021 NYTS.
 #'
 #' @format A data frame with 20,413 rows and 35 variables:
 #' \describe{
@@ -211,5 +210,16 @@
 #' }
 #'
 #'
-#' @source \url{https://www.cdc.gov/tobacco/data_statistics/surveys/nyts/data/index.html}
+#' @source Data was downloaded from the CDC's website at the following link:
+#'
+#' \url{https://www.cdc.gov/tobacco/data_statistics/surveys/nyts/data/index.html}.
+#'
+#' Variables were selected and defined in a similar manner to those in
+#'
+#' Park-Lee, E., Gentzke, A. S., Ren, C., Cooper, M., Sawdey, M. D., Hu, S. S.,
+#' & Cullen, K. A. (2023). Impact of Survey Setting on Current Tobacco Product
+#' Use: National Youth Tobacco Survey, 2021. Journal of Adolescent Health,
+#' 72(3), 365-374.
+#'
+#' \url{https://pubmed.ncbi.nlm.nih.gov/36470692/}
 "nyts"

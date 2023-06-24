@@ -61,5 +61,6 @@
 #'
 #' All feature values are recoded with four significant digits.
 #'
-#' @source \url{https://archive.ics.uci.edu/dataset/15/breast+cancer+wisconsin+original}
+#' @source Obtained from the UC Irvine Machine Learning Repository:
+#' \url{https://archive.ics.uci.edu/dataset/15/breast+cancer+wisconsin+original}
 "breastcancer"

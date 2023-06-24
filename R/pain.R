@@ -1,6 +1,4 @@
-#' Data from Alter et al. (2021): Hierarchical Clustering by Patient-Reported
-#' Pain Distribution Alone Identifies Distinct Chronic Pain Subgroups Differing
-#' by Pain Intensity, Quality, and Clinical Outcomes
+#' Data from Alter et al. (2021)'s Study on Patient-Reported Pain
 #'
 #' Information from patient-reported pain assessments using the Collaborative
 #' Health Outcomes Information Registry (CHOIR) at baseline and at a 3-month
@@ -130,6 +128,10 @@
 #' for Treatment registry (PORT).
 #'
 #'
-#' @source
+#' @source Alter, B. J., Anderson, N. P., Gillman, A. G., Yin, Q., Jeong, J. H.,
+#'  & Wasan, A. D. (2021). Hierarchical clustering by patient-reported pain
+#'  distribution alone identifies distinct chronic pain subgroups differing by
+#'  pain intensity, quality, and clinical outcomes. PloS one, 16(8), e0254862.
+#'
 #' \url{https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0254862}
 "pain"

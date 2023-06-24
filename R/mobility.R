@@ -20,5 +20,11 @@
 #' 2021-04-12 and 2021-04-21 to present did not meet quality control standards,
 #' and was not released.
 #'
-#' @source \url{https://github.com/descarteslabs/DL-COVID-19}
+#' @source Data was obtained from Descartes Labs
+#' \url{descarteslabs.com/mobility/}
+#'
+#' Warren, Michael S. & Skillman, Samuel W. "Mobility Changes in Response to
+#' COVID-19". arXiv:2003.14228 [cs.SI], Mar. 2020. arxiv.org/abs/2003.14228
+#'
+#' \url{https://github.com/descarteslabs/DL-COVID-19}
 "mobility"

@@ -1,6 +1,6 @@
 #' US Covid Data from the Covid-19 Data Hub
 #'
-#' Daily confirmed Covid cases and deaths at the state and city level in 2020,
+#' Daily confirmed Covid-19 cases and deaths at the state and city level in 2020,
 #' downloaded from the COVID19 R package.
 #'
 #' @format A data frame with 477,799 rows and 5 variables.
@@ -18,7 +18,6 @@
 #'   due to decreasing cumulative counts in the original
 #'   data provider".}
 #' }
-#'
 #'
 #' @source Guidotti, E., Ardia, D., (2020), "COVID-19 Data Hub",
 #' Journal of Open Source Software 5(51):2376, doi:10.21105/joss.02376"

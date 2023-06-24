@@ -2,11 +2,9 @@
 #' (NHANES)
 #'
 #' Lead, blood pressure, and demographic variables from NHANES 1999-2018,
-#' downloaded from the nhanesA package and chosen in an effort to replicate the
-#' analyses conducted by
-#' \url{https://www.frontiersin.org/articles/10.3389/fpubh.2022.836357/full}.
-#' Data was filtered to adults 20 years of age or older with nonmissing blood
-#' lead level, blood pressure, and demographic information.
+#' downloaded from the nhanesA package. Data was filtered to adults 20 years of
+#' age or older with nonmissing blood lead level, blood pressure, and
+#' demographic information.
 #'
 #' @format A data frame with 31,265 rows and 15 variables:
 #' \describe{
@@ -71,6 +69,14 @@
 #' }
 #'
 #'
-#' @source
-#' \url{https://cran.r-project.org/web/packages/nhanesA/vignettes/Introducing_nhanesA.html}
+#' @source Data was obtained from the nhanesA package
+#' \url{https://cran.r-project.org/web/packages/nhanesA/vignettes/Introducing_nhanesA.html}.
+#'
+#' Variable selection and feature engineering were conducted in an effort to
+#' replicate the analyses conducted by
+#'
+#' Huang, Z. (2022). Association Between Blood Lead Level With High Blood
+#' Pressure in US (NHANES 1999-2018). Frontiers in Public Health, 892.
+#'
+#' \url{https://www.frontiersin.org/articles/10.3389/fpubh.2022.836357/full}.
 "NHANESsample"
