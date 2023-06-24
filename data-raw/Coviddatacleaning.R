@@ -1,65 +1,43 @@
 library(readxl)
 library(tidyverse)
+library(COVID19)
 
 ## Cases Data ##
+covidcases <- COVID19::covid19(country="US",
+                               level = 3,
+                               start="2020-03-01",
+                               end= "2020-09-01")
+covidcases <- covidcases[!(covidcases$administrative_area_level_2 %in%
+                             c("American Samoa", "Guam",
+                               "Northern Mariana Islands",
+                               "Puerto Rico",
+                               "Virgin Islands")), ]
+covidcases <- covidcases[ , c("date",
+                              "confirmed",
+                              "deaths",
+                              "administrative_area_level_2",
+                              "administrative_area_level_3")]
 
-## downloaded US casedata from https://covid19datahub.io/articles/data.html
-## ("Download by Country")
-#covidcases <- read.csv("USA.csv")
+covidcases <- covidcases %>%
+  group_by(administrative_area_level_2, administrative_area_level_3) %>%
+  arrange(date) %>%
+  mutate(daily_deaths = deaths - lag(deaths),
+         daily_cases = confirmed - lag(confirmed)) %>%
+  rename(state = administrative_area_level_2,
+         county = administrative_area_level_3)
 
-# filter to just US
-# covidcases <- covidcases[!(covidcases$administrative_area_level_2 %in%
-#                              c("American Samoa",
-#                                "Guam",
-#                                "Northern Mariana Islands",
-#                                "Puerto Rico",
-#                                "Virgin Islands",
-#                                "")), ]
-
-# select columns of interest
-# covidcases <- covidcases[ , c("date",
-#                               "confirmed",
-#                               "deaths",
-#                               "administrative_area_level_2",
-#                               "administrative_area_level_3")]
-
-# filter dates to 2020
-# covidcases <- covidcases[covidcases$date >= "2020-01-01" &
-#                            covidcases$date <= "2020-12-31",]
-
-#save
-#write.csv(covidcases, "uscovidcases.csv", row.names = F)
-
-covidcases <- read.csv("uscovidcases.csv")
-covidcases <- covidcases %>% filter(!is.na(confirmed))
-
-# get daily cases
-covidcases <- covidcases %>% group_by(administrative_area_level_2,
-                                      administrative_area_level_3) %>%
-  mutate(daily_cases = confirmed - lag(confirmed))
-
-# get daily deaths
-covidcases <- covidcases %>% group_by(administrative_area_level_2,
-                                      administrative_area_level_3) %>%
-  mutate(daily_deaths = deaths - lag(deaths))
-
-for (i in 1:nrow(covidcases)) {
-  if (is.na(covidcases$daily_cases[i])) {
-    covidcases$daily_cases[i] <- covidcases$confirmed[i]
-  }
-  if (is.na(covidcases$daily_deaths[i])) {
-    covidcases$daily_deaths[i] <- covidcases$deaths[i]
-  }
-}
-
-# rename columns
-covidcases <- covidcases %>% rename(state = administrative_area_level_2,
-                                    county = administrative_area_level_3)
-covidcases <- covidcases %>% select(-c(confirmed, deaths))
-covidcases$county <- na_if(covidcases$county, "")
+covidcases <- covidcases %>%
+  mutate(daily_deaths = ifelse(is.na(daily_deaths),
+                               deaths,
+                               daily_deaths),
+         daily_cases = ifelse(is.na(daily_cases),
+                                         confirmed,
+                                         daily_cases)) %>%
+  select(-c(confirmed, deaths))
 
 # save
 usethis::use_data(covidcases, overwrite = TRUE)
+
 
 ## Mobility Data ##
 
