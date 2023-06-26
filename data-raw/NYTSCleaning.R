@@ -3,12 +3,12 @@ library(tidyverse)
 
 ##### NYTS Data #####
 
-# downloaded from
-# https://www.cdc.gov/tobacco/data_statistics/surveys/nyts/data/index.html
-# (2021 data)
+#downloaded from
+#https://www.cdc.gov/tobacco/data_statistics/surveys/nyts/data/index.html
+#(2021 data)
 nyts <- read_excel("nyts2021.xlsx")
 
-# select relevant columns
+#select relevant columns
 nyts <- nyts %>% select(Location, QN1:QN5E, QN154:QN165, QN6, QN9, QN35, QN38,
                         QN51, QN53, QN125:QN126, QN20AA:QN21AL, QN20BA:QN21BL,
                         QN20CA:QN21CL)
@@ -18,7 +18,7 @@ nyts <- nyts %>% rename(location = Location, age = QN1, sex = QN2, grade = QN3,
                         native_hawaiian_or_other_pacific_islander = QN5D,
                         white = QN5E)
 
-# clean age, sex, and grade variables
+#clean age, sex, and grade variables
 nyts$age <- as.factor(nyts$age)
 levels(nyts$age) <- c("9", "10", "11", "12", "13", "14", "15", "16",
                       "17", "18", ">=19")
@@ -30,7 +30,7 @@ nyts$grade <- as.factor(nyts$grade)
 levels(nyts$grade) <- c("6th", "7th", "8th", "9th", "10th", "11th", "12th",
                         "Ungraded or Other Grade")
 
-# clean race and ethnicity variables
+#clean race and ethnicity variables
 nyts <- nyts %>% mutate(hispanic = ifelse(if_any(c(QN4B:QN4E), ~ . == 1),
                                           1, 0))
 nyts$hispanic[nyts$QN4A == 1] <- 0
@@ -53,12 +53,12 @@ nyts <- nyts %>%
   select(-c(QN4A:QN4E,american_indian_or_alaska_native:white,hispanic))
 
 
-# clean language variable
+#clean language variable
 nyts <- nyts %>% rename(otherlang = QN154)
 nyts$otherlang <- as.factor(nyts$otherlang)
 levels(nyts$otherlang) <- c("Yes", "No")
 
-# clean lgbt variables
+#clean lgbt variables
 table(nyts$QN155, nyts$QN156)
 nyts <- nyts %>% mutate(LGBT = case_when(QN155 == 2 |
                                            QN155 == 3 |
@@ -69,7 +69,7 @@ nyts <- nyts %>% mutate(LGBT = case_when(QN155 == 2 |
                                            QN156 == 1 ~ "No")) %>%
   select(-c(QN155, QN156))
 
-# clean psych distress
+#clean psych distress
 nyts <- nyts %>%
   mutate(psych_distress =
            case_when(QN157A + QN157B + QN157C + QN157D - 4 >=0 &
@@ -82,7 +82,7 @@ nyts <- nyts %>%
                      QN157A + QN157B + QN157C + QN157D - 4 <= 12 ~ "severe")) %>%
   select(-c(QN157A, QN157B, QN157C, QN157D))
 
-# clean family affluence
+#clean family affluence
 nyts <- nyts %>% mutate(
   family_sum = rowSums(dplyr::select(.,c(QN161, QN162, QN163, QN164)),
                        na.rm=TRUE)-4,
@@ -91,7 +91,7 @@ nyts <- nyts %>% mutate(
                                family_sum <=9 ~ "high")) %>%
   select(-c(family_sum, QN161, QN162, QN163, QN164))
 
-# clean grades in past 12 months
+#clean grades in past 12 months
 nyts <- nyts %>% rename(grades_in_past_year = QN165)
 nyts$grades_in_past_year <- as.factor(nyts$grades_in_past_year)
 levels(nyts$grades_in_past_year) <- c("Mostly A's",
@@ -102,20 +102,20 @@ levels(nyts$grades_in_past_year) <- c("Mostly A's",
                                       "None of these grades",
                                       "Not Sure")
 
-# clean days of tobacco use in past 30 days
+#clean days of tobacco use in past 30 days
 nyts <- nyts %>% mutate(
   num_e_cigs = ifelse(QN6 == 2, 0, QN9),
   num_cigarettes = ifelse(QN35 == 2, 0, QN38),
   num_cigars = ifelse(QN51 == 2, 0, QN53)) %>%
   select(-c(QN6, QN9, QN35, QN38, QN51, QN53))
 
-# clean perceived tobacco use
+#clean perceived tobacco use
 nyts <- nyts %>% rename(perceived_cigarette_use = QN125,
                         perceived_e_cig_use = QN126)
 nyts$perceived_cigarette_use = (nyts$perceived_cigarette_use - 1)/10
 nyts$perceived_e_cig_use = (nyts$perceived_e_cig_use - 1)/10
 
-# clean how they got them
+#clean how they got them
 nyts <- nyts %>%
   mutate(bought_myself = ifelse(if_any(c(QN20AA, QN20BA, QN20CA),  ~ . == 1),
                                 1, 0),
@@ -153,7 +153,7 @@ nyts$some_other_way[nyts$num_e_cigs == 0 & nyts$num_cigarettes == 0 &
                       nyts$num_cigars == 0] <- 0
 
 
-# clean where they bought them
+#clean where they bought them
 nyts <- nyts %>%
   mutate(did_not_buy = ifelse(if_all(
     c(QN21AA, QN21BA, QN21CA),  ~ . == 1), 1, 0),
@@ -230,8 +230,8 @@ nyts$did_not_buy[nyts$bought_from_someone == 1 |
                    nyts$bought_from_smoke_shop == 1 |
                    nyts$bought_elsewhere == 1] <- 0
 
-# remove irrelevant columns
+#remove irrelevant columns
 nyts <- nyts %>% select(-c(QN20AA:QN21AL, QN20BA:QN21BL, QN20CA:QN21CL))
 
-# save
+#save
 usethis::use_data(nyts, overwrite = TRUE)

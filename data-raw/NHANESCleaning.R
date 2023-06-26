@@ -4,7 +4,7 @@ library(tidyverse)
 
 ##### NHANES Data #####
 
-# Lead info
+#retrieve lead info
 lead_1999 <- nhanes("LAB06")
 lead_1999$YEAR <- 1999
 lead_2001 <- nhanes("L06_B")
@@ -26,7 +26,7 @@ lead_2015$YEAR <- 2015
 lead_2017 <- nhanes("PbCd_J")
 lead_2017$YEAR <- 2017
 
-# Blood pressure info
+#retrieve blood pressure info
 bpx_1999 <- nhanes("BPX")
 bpx_1999$YEAR <- 1999
 bpx_2001 <- nhanes("BPX_B")
@@ -48,7 +48,7 @@ bpx_2015$YEAR <- 2015
 bpx_2017 <- nhanes("BPX_J")
 bpx_2017$YEAR <- 2017
 
-# Age, sex, race, income, edu
+#retrieve demographic info
 demo_1999 <- nhanes("DEMO")
 demo_1999$YEAR <- 1999
 demo_2001 <- nhanes("DEMO_B")
@@ -71,7 +71,7 @@ demo_2017 <- nhanes("DEMO_J")
 demo_2017$YEAR <- 2017
 
 
-# Alcohol information
+#retrieve alcohol-use info
 alq_1999 <- nhanes("ALQ")
 alq_1999$YEAR <- 1999
 alq_2001 <- nhanes("ALQ_B")
@@ -94,7 +94,7 @@ alq_2017 <- nhanes("ALQ_J")
 alq_2017$YEAR <- 2017
 
 
-# BMI info
+#retrieve bmi info
 bmx_1999 <- nhanes("BMX")
 bmx_1999$YEAR <- 1999
 bmx_2001 <- nhanes("BMX_B")
@@ -117,7 +117,7 @@ bmx_2017 <- nhanes("BMX_J")
 bmx_2017$YEAR <- 2017
 
 
-# Smoking info
+#retrieve smoking info
 smq_1999 <- nhanes("SMQ")
 smq_1999$YEAR <- 1999
 smq_2001 <- nhanes("SMQ_B")
@@ -139,7 +139,7 @@ smq_2015$YEAR <- 2015
 smq_2017 <- nhanes("SMQ_J")
 smq_2017$YEAR <- 2017
 
-# Hypertension
+#retrieve hypertension info
 bpq_1999 <- nhanes("BPQ")
 bpq_1999$YEAR <- 1999
 bpq_2001 <- nhanes("BPQ_B")
@@ -161,7 +161,7 @@ bpq_2015$YEAR <- 2015
 bpq_2017 <- nhanes("BPQ_J")
 bpq_2017$YEAR <- 2017
 
-# Combine them
+#combine all datasets
 df_1999 <- lead_1999 %>%
   full_join(bpx_1999, by = "SEQN") %>%
   full_join(demo_1999, by = "SEQN") %>%
@@ -243,7 +243,7 @@ final_df <- df_1999 %>%
   full_join(df_2015) %>%
   full_join(df_2017)
 
-# filter out unnecessary rows
+#filter out unnecessary columns
 final_df <- final_df %>%
   select(c("SEQN","LBXBPB", "BPXDI1", "BPXDI2", "BPXDI3", "BPXDI4", "BPXSY1",
            "BPXSY2", "BPXSY3", "BPXSY4", "RIDAGEYR", "RIAGENDR", "RIDRETH1",
@@ -252,8 +252,7 @@ final_df <- final_df %>%
            "ALQ151", "ALQ160", "BMXBMI", "SMAQUEX2", "SMQ020", "SMQ040",
            "SMQ050Q", "BPQ020", "BPQ040A", "BPQ050A", "YEAR"))
 
-# filter out rows with no values
-
+#filter out rows with no values
 final_df <- final_df %>%
   filter(!is.na(LBXBPB)) %>%
   filter(!is.na(BPXDI1) | !is.na(BPXDI2) | !is.na(BPXDI3) | !is.na(BPXDI4)) %>%
@@ -269,24 +268,25 @@ final_df <- final_df %>%
 final_df <- subset(final_df, RIDAGEYR >= 20)
 
 
-# create a lookup table for lower limits of detection by year
+#create a lookup table for lower limits of detection by year
 lod_table <- data.frame(
   year = c(1999:2002, 2003:2004, 2005:2012, 2013:2016, 2017:2018),
   lod = c(rep(0.3, 4), rep(0.28, 2), rep(0.25, 8), rep(0.07, 4), rep(0.05, 2))
 )
 
-# function to replace values below the LOD
+#function to replace values below the LOD
 replace_below_lod <- function(x, lod) {
   ifelse(x < lod, lod / sqrt(2), x)
 }
 
-# loop through each year and replace values below the LOD
+#loop through each year and replace values below the LOD
 for (year in unique(final_df$YEAR)) {
   lod <- lod_table$lod[lod_table$year == year]
   final_df$lead[final_df$YEAR == year] <- replace_below_lod(
     final_df$LBXBPB[final_df$YEAR == year], lod)
 }
 
+#rename variables
 final_df <- final_df %>%
   rename("BMI"= "BMXBMI",
          "sex" = "RIAGENDR",
@@ -303,7 +303,7 @@ final_df <- final_df %>%
          "SBP3" = "BPXSY3",
          "SBP4" = "BPXSY4")
 
-#Education level column with groupings
+#rename and relabel education column
 final_df$education <- as.factor(final_df$education)
 final_df$education <- factor(final_df$education, levels = 1:5,
                              labels = c("LessThanHS",
@@ -312,7 +312,7 @@ final_df$education <- factor(final_df$education, levels = 1:5,
                                         "MoreThanHS",
                                         "MoreThanHS"))
 
-#Race column renamed
+#rename and relabel race column
 final_df$race <- as.factor(final_df$race)
 final_df$race <- factor(final_df$race, levels = 1:5,
                         labels = c("Mexican American",
@@ -321,20 +321,20 @@ final_df$race <- factor(final_df$race, levels = 1:5,
                                    "Non-Hispanic Black",
                                    "Other Race"))
 
-#Gender column renamed
+#rename and relabel gender column
 final_df$sex <- as.factor(final_df$sex)
 final_df$sex <- factor(final_df$sex, levels = 1:2,
                        labels = c("Male",
                                   "Female"))
 final_df$age <- as.numeric(final_df$age)
 
-#BMI category
+#rename and relabel BMI column
 final_df$BMIcat <- cut(final_df$BMI, c(-Inf, 25, 30, Inf),
                        labels = c("BMI<=25",
                                   "25<BMI<30",
                                   "BMI>=30"))
 
-#BP groupings
+#calculate single diastolic blood pressure measure
 for(i in 1:nrow(final_df)){
   final_df$DBP[i] <- ifelse(is.na(final_df$DBP4[i]),
                             ifelse(is.na(final_df$DBP3[i]),
@@ -361,12 +361,7 @@ for(i in 1:nrow(final_df)){
 
 }
 
-#BLL Quantiles
-quantiles <- quantile(final_df$lead, probs = c(0.25, 0.5, 0.75))
-final_df$quantile <- cut(final_df$lead, breaks = c(-Inf, quantiles, Inf),
-                         labels = c("Q1", "Q2", "Q3", "Q4"))
-
-#BP Calculations
+#calculate single systolic blood pressure measure
 for(i in 1:nrow(final_df)){
   final_df$SBP[i] <- ifelse(is.na(final_df$SBP4[i]),
                             ifelse(is.na(final_df$SBP3[i]),
@@ -393,6 +388,13 @@ for(i in 1:nrow(final_df)){
 
 }
 
+
+#create a variable for blood lead level quantiles
+quantiles <- quantile(final_df$lead, probs = c(0.25, 0.5, 0.75))
+final_df$quantile <- cut(final_df$lead, breaks = c(-Inf, quantiles, Inf),
+                         labels = c("Q1", "Q2", "Q3", "Q4"))
+
+
 #add column that details whether patient has hypertension
 for(i in 1:nrow(final_df)){
   if(is.na(final_df$BPQ020[i]) | is.na(final_df$BPQ040A[i])) {
@@ -413,11 +415,11 @@ for(i in 1:nrow(final_df)){
   }
 }
 
-#alc recode levels
+#recode alcohol levels
 final_df$alc <- ifelse(final_df$ALQ120Q > 0 | final_df$ALQ121 %in% c(1:10),
                        "Yes", "No")
 
-#smoking recode levels
+#recode smoking levels
 final_df <- final_df %>%
   unite("smoke", SMQ020:SMQ040, na.rm = TRUE, remove = FALSE)
 final_df$smoke[final_df$smoke == "1_1" |
@@ -427,17 +429,18 @@ final_df$smoke[final_df$smoke != "StillSmoke" &
                  final_df$smoke != "QuitSmoke"] <- "NeverSmoke"
 final_df$smoke <- as.factor(final_df$smoke)
 
+#rename dataframe, select and rename columns of interest
 NHANESsample <- final_df
 
 NHANESsample <- NHANESsample %>% select(SEQN, age, sex, race, education, income,
                                         smoke, YEAR, lead, BMIcat,
                                         quantile, HYP, alc, DBP1, DBP2,
                                         DBP3, DBP4, SBP1, SBP2, SBP3, SBP4)
+
 NHANESsample <- NHANESsample %>% rename(ID = SEQN,
                                         BMI_CAT = BMIcat,
-                                        LEAD_QUANTILE = quantile)
-
-NHANESsample <- NHANESsample %>% rename(AGE = age,
+                                        LEAD_QUANTILE = quantile,
+                                        AGE = age,
                                         SEX = sex,
                                         RACE = race,
                                         EDUCATION = education,

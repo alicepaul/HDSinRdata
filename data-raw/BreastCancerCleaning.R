@@ -7,7 +7,7 @@ library(utils)
 # https://archive.ics.uci.edu/dataset/15/breast+cancer+wisconsin+original (wdbc)
 breastcancer <- read.table("wdbc.data", header = F, sep = ",")
 
-#name columns
+#rename columns
 names(breastcancer) <- c("id",
                          "diagnosis",
                          "radius_mean",
