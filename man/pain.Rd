@@ -5,7 +5,7 @@
 \alias{pain}
 \title{Data from Alter et al. (2021)'s Study on Patient-Reported Pain}
 \format{
-A data frame with 21,659 rows and 93 variables. Data and variable
+A data frame with 21,659 rows and 92 variables. Data and variable
 descriptions were downloaded from the "S1 Dataset".
 \describe{
   \item{PATIENT_NUM}{Deidentified study identification number}

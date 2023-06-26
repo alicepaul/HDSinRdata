@@ -15,10 +15,10 @@
 #'   defined during 2020-02-17 to 2020-03-07, averaged across counties.}
 #' }
 #'
-#' Note from the data website: Data for 2020-04-20, 2020-05-29, 2020-10-08,
+#' Note from the data website: "Data for 2020-04-20, 2020-05-29, 2020-10-08,
 #' 2020-12-11 through 2020-12-18, 2021-01-08 through 2021-01-14, 2021-04-07,
 #' 2021-04-12 and 2021-04-21 to present did not meet quality control standards,
-#' and was not released.
+#' and was not released."
 #'
 #' @source Data was obtained from Descartes Labs
 #' \url{descarteslabs.com/mobility/}

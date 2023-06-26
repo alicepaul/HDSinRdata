@@ -71,7 +71,7 @@ Obtained from the UC Irvine Machine Learning Repository:
 breastcancer
 }
 \description{
-Contains 32 features of cell nuclei present in digitized images of fine
+32 features of cell nuclei present in digitized images of fine
 needle aspirates of 212 malignant and 357 benign breast masses.
 }
 \keyword{datasets}

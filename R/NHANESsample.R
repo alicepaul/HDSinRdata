@@ -40,15 +40,14 @@
 #'   \item{HYP}{Hypertension Status: Based on "BPQ020" (Have you ever been told
 #'   by a doctor or other health professional that you had hypertension,
 #'   also called high blood pressure?) and "BPQ040A" (Because of your high blood
-#'    pressure/hypertension, have you ever been told to take prescribed
-#'    medicine?)
-#'   in NHANES. Equal to 1 if the respondent answered "Yes" to either of these
-#'   questions, or, if data on either of these questions isn't answered, if
-#'   sbp >= 130 or dbp >= 80, and equal to 0 otherwise.}
+#'   pressure/hypertension, have you ever been told to take prescribed
+#'   medicine?) in NHANES. Equal to 1 if the respondent answered "Yes" to either
+#'   of these questions, or, if data on either of these questions isn't answered,
+#'   if SBP >= 130 or DBP >= 80, and equal to 0 otherwise.}
 #'   \item{ALC}{Alcohol Use: Based on "ALQ120Q" (In the past 12 months, how
 #'   often did you drink any type of alcoholic beverage?) up to 2016
-#'   and "ALQ121" (the same question, but used after 2016)  in NHANES. Equal to
-#'   "Yes" if the respondent's answer to either of these questions was >0 and
+#'   and "ALQ121" (the same question, but used after 2016) in NHANES. Equal to
+#'   "Yes" if the respondent's answer to either of these questions was > 0 and
 #'   equal to "No" otherwise.}
 #'   \item{DBP1}{First Diastolic Blood Pressure (mmHg) reading:
 #'   "BPXDI1" in NHANES.}

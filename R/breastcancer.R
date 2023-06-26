@@ -1,6 +1,6 @@
 #' Data from the Original Wisconsin Diagnostic Breast Cancer Database
 #'
-#' Contains 32 features of cell nuclei present in digitized images of fine
+#' 32 features of cell nuclei present in digitized images of fine
 #' needle aspirates of 212 malignant and 357 benign breast masses.
 #'
 #' @format A data frame with 569 rows and 32 variables. The first two variables

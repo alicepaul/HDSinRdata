@@ -12,12 +12,12 @@ A data frame with 477,799 rows and 5 variables.
   \item{county}{County (administrative_area_level_3 from Covid-19 Data Hub)}
   \item{daily_deaths}{Daily Covid-19 Deaths calculated from the Covid-19
   Data Hub's cumulative counts of confirmed deaths.
-  Again, note that "some of these values are negative due to decreasing
+  Note that "some of these values are negative due to decreasing
   cumulative counts in the original data provider".}
   \item{daily_cases}{Daily Covid-19 Cases calculated from the Covid-19 Data
   Hub's cumulative counts of confirmed cases.
-  Note that, according to the Data Hub, "some of these values are negative
-  due to decreasing cumulative counts in the original
+  Again, note that, according to the Data Hub, "some of these values are
+  negative due to decreasing cumulative counts in the original
   data provider".}
 }
 }

@@ -12,38 +12,33 @@
 #'   \item{sex}{Sex: Answer to QN2: "What is your sex?"}
 #'   \item{grade}{Grade: Answer to QN3: "What grade are you in?"}
 #'   \item{race_and_ethnicity}{Race and Ethnicity: Equal to "Hispanic" if any
-#'   of QN4B ("Are you Hispanic, Latino,
-#'   Latina, or of Spanish origin?" (Yes, Mexican, Mexican American, Chicano,
-#'   or Chicana)), QN4C ("Are you Hispanic,
-#'   Latino, Latina, or of Spanish origin?" (Yes, Puerto Rican)), QN4D ("Are you
-#'   Hispanic, Latino, Latina, or of
-#'   Spanish origin?" (Yes, Cuban)), or QN4E ("Are you Hispanic, Latino, Latina,
-#'   or of Spanish origin?" (Yes, Another
-#'   Hispanic, Latino, Latina, or Spanish origin)) are selected.  Otherwise,
-#'   equal to "non-Hispanic Black" if QN5C
-#'   ("What race or races do you consider yourself to be?" (Black or African
-#'   American)) is selected, equal to "non-Hispanic White" if QN5E
-#'   ("What race or races do you consider yourself to be?" (White)) is selected,
-#'   and equal to "non-Hispanic other race" if QN5A ("What race or races do you
-#'   consider yourself to be?" (American Indian or Alaska Native)), QN5B
-#'   ("What race or races do you consider yourself to be?" (Asian)), or QN5D
-#'   ("What race or races do you consider yourself to be?" (Native Hawaiian or
-#'   Other Pacific Islander)) is selected.}
+#'   of QN4B ("Are you Hispanic, Latino, Latina, or of Spanish origin?"
+#'   (Yes, Mexican, Mexican American, Chicano, or Chicana)), QN4C ("Are you
+#'   Hispanic, Latino, Latina, or of Spanish origin?" (Yes, Puerto Rican)), QN4D
+#'   ("Are you Hispanic, Latino, Latina, or of Spanish origin?" (Yes, Cuban)),
+#'   or QN4E ("Are you Hispanic, Latino, Latina, or of Spanish origin?" (Yes,
+#'   Another Hispanic, Latino, Latina, or Spanish origin)) are selected.
+#'   Otherwise, equal to "non-Hispanic Black" if QN5C ("What race or races do
+#'   you consider yourself to be?" (Black or African American)) is selected,
+#'   equal to "non-Hispanic White" if QN5E ("What race or races do you consider
+#'   yourself to be?" (White)) is selected, and equal to "non-Hispanic other
+#'   race" if QN5A ("What race or races do you consider yourself to be?"
+#'   (American Indian or Alaska Native)), QN5B ("What race or races do you
+#'   consider yourself to be?" (Asian)), or QN5D ("What race or races do you
+#'   consider yourself to be?" (Native Hawaiian or Other Pacific Islander)) is
+#'   selected.}
 #'   \item{otherlang}{Speaks Language other than English at Home: Answer to
 #'   QN154: "Do you speak a language other than English at home?"}
 #'   \item{grades_in_past_year}{Grades in the Past Year: Answer to QN165:
-#'   "During the past 12 months, how would you
-#'   describe your grades in school?"}
+#'   "During the past 12 months, how would you describe your grades in school?"}
 #'   \item{LGBT}{LGBT Status: Equal to "Yes" if respondent answered QN155
-#'   ("Which of the following best describes you")
-#'   with "Gay or Lesbian" or "Bisexual" or if respondent answered QN156
-#'   ("Some people describe themselves as transgender
-#'   when their sex at birth does not match the way they think or feel about
-#'   their gender. Are you transgender?") with
-#'   "Yes, I am transgender". Equal to "Not Sure" if respondent answered QN155
-#'   with "Not Sure" or answered QN156 with
-#'   "I am not sure if I am transgender". Equal to "No" if respondent answered
-#'   QN155 with "Heterosexual (straight)" and
+#'   ("Which of the following best describes you") with "Gay or Lesbian" or
+#'   "Bisexual" or if respondent answered QN156 ("Some people describe themselves
+#'   as transgender when their sex at birth does not match the way they think or
+#'   feel about their gender. Are you transgender?") with "Yes, I am
+#'   transgender". Equal to "Not Sure" if respondent answered QN155 with "Not
+#'   Sure" or answered QN156 with "I am not sure if I am transgender". Equal to
+#'   "No" if respondent answered QN155 with "Heterosexual (straight)" and
 #'   answered QN156 with "No, I am not transgender".}
 #'   \item{psych_distress}{Psychological Distress: As defined in the online
 #'   supplement for the linked paper: "Psychological distress was assessed with
@@ -171,10 +166,9 @@
 #'   three tobacco products.}
 #'   \item{bought_from_vending_machine}{"I bought them from a vending machine
 #'   during the past 30 days": Equal to 1 if respondent selected any of QN21AG,
-#'   QN21BG, QN21CG
-#'   ("During the past 30 days, where did you buy your ____? (A vending
-#'   machine)" for each tobacco product. Equal to 0 if days used in the past 30
-#'   days is equal to 0 for all three tobacco products.}
+#'   QN21BG, QN21CG ("During the past 30 days, where did you buy your ____?
+#'   (A vending machine)" for each tobacco product. Equal to 0 if days used in
+#'   the past 30 days is equal to 0 for all three tobacco products.}
 #'   \item{bought_from_internet}{"I bought them on the Internet (such as a
 #'   product website or store website like eBay or Facebook Marketplace) during
 #'   the past 30 days": Equal to 1 if respondent selected any of

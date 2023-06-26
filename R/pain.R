@@ -4,7 +4,7 @@
 #' Health Outcomes Information Registry (CHOIR) at baseline and at a 3-month
 #' follow-up.
 #'
-#' @format A data frame with 21,659 rows and 93 variables. Data and variable
+#' @format A data frame with 21,659 rows and 92 variables. Data and variable
 #' descriptions were downloaded from the "S1 Dataset".
 #' \describe{
 #'   \item{PATIENT_NUM}{Deidentified study identification number}
