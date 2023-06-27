@@ -12,6 +12,8 @@
 #'   format}
 #' }
 #'
-#' @source
+#' @source 
+#' States that issued lockdown and stay-at-home orders in response to the 
+#' coronavirus (COVID-19) pandemic, 2020.
 #' \url{https://ballotpedia.org/States_that_issued_lockdown_and_stay-at-home_orders_in_response_to_the_coronavirus_(COVID-19)_pandemic,_2020}
 "lockdowndates"
