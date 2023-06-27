@@ -2,7 +2,7 @@
 #'
 #' 2020 mobility statistics at the state and county level from Descartes Labs.
 #'
-#' @format A data frame with 494,856 rows and 7 variables:
+#' @format A data frame with 9,333 rows and 5 variables:
 #' \describe{
 #'   \item{state}{State (originally admin1)}
 #'   \item{date}{Date in YYYY-MM-DD format}
