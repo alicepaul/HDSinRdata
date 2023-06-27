@@ -5,7 +5,7 @@
 \alias{mobility}
 \title{Data for Mobility Changes in Response to COVID-19}
 \format{
-A data frame with 494,856 rows and 7 variables:
+A data frame with 9,333 rows and 5 variables:
 \describe{
   \item{state}{State (originally admin1)}
   \item{date}{Date in YYYY-MM-DD format}
@@ -36,6 +36,6 @@ COVID-19". arXiv:2003.14228 [cs.SI], Mar. 2020. arxiv.org/abs/2003.14228
 mobility
 }
 \description{
-2020 mobility statistics at the state and county level from Descartes Labs.
+2020 mobility statistics at the state level from Descartes Labs.
 }
 \keyword{datasets}
