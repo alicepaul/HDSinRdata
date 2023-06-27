@@ -1,6 +1,6 @@
 #' Data for Mobility Changes in Response to COVID-19
 #'
-#' 2020 mobility statistics at the state and county level from Descartes Labs.
+#' 2020 mobility statistics at the state level from Descartes Labs.
 #'
 #' @format A data frame with 9,333 rows and 5 variables:
 #' \describe{
