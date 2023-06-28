@@ -24,23 +24,26 @@ covidcases <- covidcases[ , c("date",
                               "administrative_area_level_2",
                               "administrative_area_level_3")]
 
+
+covidcases$week <- week(covidcases$date)
+
 #create variables for daily cases and daily deaths
 covidcases <- covidcases %>%
-  group_by(administrative_area_level_2, administrative_area_level_3) %>%
+  group_by(administrative_area_level_2, administrative_area_level_3, week) %>%
   arrange(date) %>%
-  mutate(daily_deaths = deaths - lag(deaths),
-         daily_cases = confirmed - lag(confirmed)) %>%
+  filter(row_number()==1 | row_number()==n()) %>%
+  ungroup() %>%
+  group_by(administrative_area_level_2, administrative_area_level_3) %>%
+  mutate(weekly_cases = ifelse(lead(confirmed) - confirmed == 0,
+                               confirmed,
+                               lead(confirmed) - confirmed),
+         weekly_deaths = ifelse(lead(deaths) - deaths == 0,
+                                deaths,
+                                lead(deaths) - deaths)) %>%
+  group_by(administrative_area_level_2, administrative_area_level_3, week) %>%
+  slice(1) %>% select(-c(date, confirmed, deaths)) %>%
   rename(state = administrative_area_level_2,
          county = administrative_area_level_3)
-
-covidcases <- covidcases %>%
-  mutate(daily_deaths = ifelse(is.na(daily_deaths),
-                               deaths,
-                               daily_deaths),
-         daily_cases = ifelse(is.na(daily_cases),
-                                         confirmed,
-                                         daily_cases)) %>%
-  select(-c(confirmed, deaths))
 
 #save
 usethis::use_data(covidcases, overwrite = TRUE)

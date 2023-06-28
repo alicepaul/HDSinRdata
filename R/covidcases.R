@@ -1,22 +1,22 @@
 #' US Covid Data from the Covid-19 Data Hub
 #'
-#' Daily confirmed Covid-19 cases and deaths at the state and city level in 2020,
-#' downloaded from the COVID19 R package.
+#' Weekly confirmed Covid-19 cases and deaths at the state and city level in
+#' 2020, downloaded from the COVID19 R package.
 #'
-#' @format A data frame with 477,799 rows and 5 variables.
+#' @format A data frame with 69,530 rows and 5 variables.
 #' \describe{
-#'   \item{date}{Date in YYYY-MM-DD format}
 #'   \item{state}{State (administrative_area_level_2 from Covid-19 Data Hub)}
 #'   \item{county}{County (administrative_area_level_3 from Covid-19 Data Hub)}
-#'   \item{daily_deaths}{Daily Covid-19 Deaths calculated from the Covid-19
-#'   Data Hub's cumulative counts of confirmed deaths.
-#'   Note that "some of these values are negative due to decreasing
-#'   cumulative counts in the original data provider".}
-#'   \item{daily_cases}{Daily Covid-19 Cases calculated from the Covid-19 Data
+#'   \item{week}{Week of 2020}
+#'   \item{weekly_cases}{Weekly Covid-19 cases calculated from the Covid-19 Data
 #'   Hub's cumulative counts of confirmed cases.
-#'   Again, note that, according to the Data Hub, "some of these values are
+#'   Note that, according to the Data Hub, "some of these values are
 #'   negative due to decreasing cumulative counts in the original
 #'   data provider".}
+#'   \item{weekly_deaths}{Weekly Covid-19 deaths calculated from the Covid-19
+#'   Data Hub's cumulative counts of confirmed deaths.
+#'   Again, note that "some of these values are negative due to decreasing
+#'   cumulative counts in the original data provider".}
 #' }
 #'
 #' @source Guidotti, E., Ardia, D., (2020), "COVID-19 Data Hub",
