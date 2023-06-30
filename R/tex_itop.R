@@ -9,33 +9,33 @@
 #'   \item{county}{County of residence in Texas}
 #'   \item{total_itop}{Total number of abortions}
 #'   \item{asian_itop}{Total number of abortions among Asian women between
-#'   the ages of 18-49}
+#'   the ages of 15-49}
 #'   \item{hispanic_itop}{Total number of abortions among Hispanic women between
-#'   the ages of 18-49}
+#'   the ages of 15-49}
 #'   \item{white_itop}{Total number of abortions among White women between
-#'   the ages of 18-49}
+#'   the ages of 15-49}
 #'   \item{black_itop}{Total number of abortions among Black women between
-#'   the ages of 18-49}
+#'   the ages of 15-49}
 #'   \item{native_american_itop}{Total number of abortions among Native American
-#'   women between the ages of 18-49}
+#'   women between the ages of 15-49}
 #'   \item{other_itop}{Total number of abortions among women of other races or
-#'   ethnicities between the ages of 18-49}
+#'   ethnicities between the ages of 15-49}
 #'   \item{year}{year}
 #'   \item{urban}{Indicator for whether the county is 'rural' or 'urban'}
 #'   \item{total_rate}{Abortion rate per 1000 women between
-#'   the ages of 18-49}
+#'   the ages of 15-49}
 #'   \item{asian_rate}{Abortion rate per 1000 Asian women between
-#'   the ages of 18-49}
+#'   the ages of 15-49}
 #'   \item{hispanic_rate}{Abortion rate per 1000 Hispanic women between
-#'   the ages of 18-49}
+#'   the ages of 15-49}
 #'   \item{white_rate}{Abortion rate per 1000 White women between
-#'   the ages of 18-49}
+#'   the ages of 15-49}
 #'   \item{black_rate}{Abortion rate per 1000 Black women between
-#'   the ages of 18-49}
+#'   the ages of 15-49}
 #'   \item{native_american_rate}{Abortion rate per 1000 Native American
-#'   women between the ages of 18-49}
+#'   women between the ages of 15-49}
 #'   \item{other_rate}{Abortion rate per 1000 women of other races or
-#'   ethnicities between the ages of 18-49}
+#'   ethnicities between the ages of 15-49}
 #' }
 #'
 #' Note from the data website: for the year 2020, "Data do not include 82
@@ -47,7 +47,7 @@
 #'
 #' \url{https://www.hhs.texas.gov/about/records-statistics/data-statistics/itop-statistics}
 #'
-#' To calculate abortion rates, total female populations between the ages of 18
+#' To calculate abortion rates, total female populations between the ages of 15
 #' and 49 were retrieved using the tidycensus package in R:
 #'
 #' \url{https://cran.r-project.org/web/packages/tidycensus/index.html}
