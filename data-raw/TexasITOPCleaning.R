@@ -6,16 +6,16 @@ library(readxl)
 # create a vector of desired Census variables using
 # https://api.census.gov/data/2020/dec/dhc/variables.html
 
-female_vars <- c(paste("P12_0", 30:39, "N", sep = ""), # All Female
-                 paste("P12H_0", 30:39, "N", sep = ""),  # Hispanic Female
-                 paste("P12I_0", 30:39, "N", sep = ""),  # White Female
-                 paste("P12J_0", 30:39, "N", sep = ""),  # Black Female
-                 paste("P12K_0", 30:39, "N", sep = ""),  # Native American Female
-                 paste("P12L_0", 30:39, "N", sep = ""),  # Asian Female
-                 paste("P12M_0", 30:39, "N", sep = ""),
+female_vars <- c(paste("P12_0", 30:38, "N", sep = ""), # All Female
+                 paste("P12H_0", 30:38, "N", sep = ""),  # Hispanic Female
+                 paste("P12I_0", 30:38, "N", sep = ""),  # White Female
+                 paste("P12J_0", 30:38, "N", sep = ""),  # Black Female
+                 paste("P12K_0", 30:38, "N", sep = ""),  # Native American Female
+                 paste("P12L_0", 30:38, "N", sep = ""),  # Asian Female
+                 paste("P12M_0", 30:38, "N", sep = ""),
                  # Native Hawaiian or Pacific Islander Female
-                 paste("P12N_0", 30:39, "N", sep = ""),  # Other Female
-                 paste("P12O_0", 30:39, "N", sep = "")) # Two or More
+                 paste("P12N_0", 30:38, "N", sep = ""),  # Other Female
+                 paste("P12O_0", 30:38, "N", sep = "")) # Two or More
 
 # get Texas data on the above variables from the 2020 decennial Census
 df <- get_decennial(year=2020, state="TX", geography="county",
@@ -27,15 +27,15 @@ tex_cens <- df %>%
   select(-c(GEOID)) %>%
   rename(county = NAME)
 
-tex_cens <- tex_cens %>% mutate(tot_pop = rowSums(tex_cens[ , paste("P12_0", 30:39, "N", sep = "")]),
-         white = rowSums(tex_cens[ , paste("P12I_0", 30:39, "N", sep = "")]),
-         hispanic = rowSums(tex_cens[ , paste("P12H_0", 30:39, "N", sep = "")]),
-         black = rowSums(tex_cens[ , paste("P12J_0", 30:39, "N", sep = "")]),
-         native_american = rowSums(tex_cens[ , paste("P12K_0", 30:39, "N", sep = "")]),
-         asian = rowSums(tex_cens[ , paste("P12L_0", 30:39, "N", sep = "")]),
-         other = rowSums(tex_cens[ , c(paste("P12M_0", 30:39, "N", sep = ""),
-                                       paste("P12N_0", 30:39, "N", sep = ""),
-                                       paste("P12O_0", 30:39, "N", sep = ""))]),
+tex_cens <- tex_cens %>% mutate(tot_pop = rowSums(tex_cens[ , paste("P12_0", 30:38, "N", sep = "")]),
+         white = rowSums(tex_cens[ , paste("P12I_0", 30:38, "N", sep = "")]),
+         hispanic = rowSums(tex_cens[ , paste("P12H_0", 30:38, "N", sep = "")]),
+         black = rowSums(tex_cens[ , paste("P12J_0", 30:38, "N", sep = "")]),
+         native_american = rowSums(tex_cens[ , paste("P12K_0", 30:38, "N", sep = "")]),
+         asian = rowSums(tex_cens[ , paste("P12L_0", 30:38, "N", sep = "")]),
+         other = rowSums(tex_cens[ , c(paste("P12M_0", 30:38, "N", sep = ""),
+                                       paste("P12N_0", 30:38, "N", sep = ""),
+                                       paste("P12O_0", 30:38, "N", sep = ""))]),
          county = str_replace(county, " County, Texas", "")) %>%
   select(-all_of(female_vars))
 
