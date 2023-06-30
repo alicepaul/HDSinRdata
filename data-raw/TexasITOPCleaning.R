@@ -12,7 +12,8 @@ female_vars <- c(paste("P12_0", 31:39, "N", sep = ""), # All Female
                  paste("P12J_0", 31:39, "N", sep = ""),  # Black Female
                  paste("P12K_0", 31:39, "N", sep = ""),  # Native American Female
                  paste("P12L_0", 31:39, "N", sep = ""),  # Asian Female
-                 paste("P12M_0", 31:39, "N", sep = ""),  # Native Hawaiian or Pacific Islander Female
+                 paste("P12M_0", 31:39, "N", sep = ""),
+                 # Native Hawaiian or Pacific Islander Female
                  paste("P12N_0", 31:39, "N", sep = ""),  # Other Female
                  paste("P12O_0", 31:39, "N", sep = "")) # Two or More
 
