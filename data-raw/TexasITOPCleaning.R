@@ -174,6 +174,20 @@ tex_itop$native_american_rate[is.nan(tex_itop$native_american_rate) |
 tex_itop$other_rate[is.nan(tex_itop$other_rate) |
                       is.infinite(tex_itop$other_rate)] <- 0
 
+# downloaded from
+# https://www.ers.usda.gov/data-products/rural-urban-continuum-codes/
+urb_rural <- read_excel("ruralurbancodes2013.xls")
+
+urb_rural <- urb_rural %>% filter(State == "TX")
+urb_rural$County_Name <- gsub(pattern = " County",
+                              replacement = "",
+                              x = urb_rural$County_Name)
+tex_itop <- left_join(tex_itop, urb_rural, by = c("county" = "County_Name")) %>%
+  mutate(county_type = case_when(RUCC_2013 < 4 ~ "Urban",
+                   RUCC_2013 > 3 & RUCC_2013 < 8 ~ "Suburban",
+                   RUCC_2013 > 7 ~ "Rural")) %>%
+  select(-c(FIPS, State, Population_2010, RUCC_2013, Description))
+
 #save
 usethis::use_data(tex_itop, overwrite = TRUE)
 

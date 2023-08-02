@@ -36,6 +36,12 @@
 #'   women between the ages of 15 and 44}
 #'   \item{other_rate}{Abortion rate per 1000 women of other races or
 #'   ethnicities between the ages of 15 and 44}
+#'   \item{county_type}{Indicator for whether the county is urban, suburban, or
+#'   rural according to the RUCC (rural-urban continuum codes) from the U.S.
+#'   Department of Agriculture in 2013. Counties with Rural-Urban Continuum
+#'   codes of 1-3 were categorized as urban, counties with codes of 4-7 were
+#'   categorized as suburban, and counties with codes of 8 or 9 were categorized
+#'   as rural.}
 #' }
 #'
 #' Note from the data website: for the year 2020, "Data do not include 82
@@ -62,5 +68,8 @@
 #'
 #' \url{https://www.tdhca.state.tx.us/home-division/docs/22-IndexCounties.pdf}
 #'
+#' The 2013 Rural-Urban Continuum Codes were obtained from the following site:
+#'
+#'\url{https://www.ers.usda.gov/data-products/rural-urban-continuum-codes/}
 #'
 "tex_itop"
