@@ -4,7 +4,7 @@
 #' from 2016 to 2021 from the Texas Department of State Health Services
 #' (up to June 2018) and the Health and Human Services Commission since then.
 #'
-#' @format A data frame with 1,524 rows and 17 variables:
+#' @format A data frame with 1,524 rows and 18 variables:
 #' \describe{
 #'   \item{county}{County of residence in Texas}
 #'   \item{total_itop}{Total number of abortions}
