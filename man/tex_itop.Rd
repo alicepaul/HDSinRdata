@@ -5,7 +5,7 @@
 \alias{tex_itop}
 \title{2016-2021 Statistics on Induced Terminations of Pregnancy (ITOP) in Texas}
 \format{
-A data frame with 1,524 rows and 17 variables:
+A data frame with 1,524 rows and 18 variables:
 \describe{
   \item{county}{County of residence in Texas}
   \item{total_itop}{Total number of abortions}
@@ -22,7 +22,8 @@ A data frame with 1,524 rows and 17 variables:
   \item{other_itop}{Total number of abortions among women of other races or
   ethnicities between the ages of 15 and 44}
   \item{year}{year}
-  \item{urban}{Indicator for whether the county is 'rural' or 'urban'}
+  \item{urban}{Indicator for whether the county is 'rural' or 'urban'
+  according to the Texas Department of Housing and Community Affairs}
   \item{total_rate}{Abortion rate per 1000 women between
   the ages of 15 and 44}
   \item{asian_rate}{Abortion rate per 1000 Asian women between
@@ -65,12 +66,14 @@ were retrieved from the following website:
 
 \url{https://api.census.gov/data/2020/dec/dhc/variables.html}.
 
-Information on whether counties are categorized as rural or urban was
-obtained from the following link:
+Information on whether counties are categorized as rural or urban according
+to the Texas Department of Housing and Community Affairs was obtained from
+the following link:
 
 \url{https://www.tdhca.state.tx.us/home-division/docs/22-IndexCounties.pdf}
 
-The 2013 Rural-Urban Continuum Codes were obtained from the following site:
+The 2013 Rural-Urban Continuum Codes from the U.S. Department of Agriculture
+were obtained from the following site:
 
 \url{https://www.ers.usda.gov/data-products/rural-urban-continuum-codes/}
 }
