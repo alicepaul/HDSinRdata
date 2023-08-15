@@ -106,11 +106,11 @@
 #'   \item{MEDICAID_BIN}{Medicaid payor: "yes" or "no"}
 #' }
 #'
-#' \if{html}{Here is a key for the coded body pain regions
-#' (S2 Fig from the linked paper):
-#'
-#'   \out{<div style="text-align: center">}\figure{bodypainmap.png}\out{</div>}
-#'
+#' \if{html}{<p>Here is a key for the coded body pain regions
+#' (S2 Fig from the linked paper): </p>
+#' </p>
+#'   \out{<div style=“text-align: center”>}\figure{bodypainmap.png}\out{</div>}
+#' </p>
 #' }
 #' \if{latex}{Here is a key for the coded body pain regions
 #' (S2 Fig from the linked paper):
