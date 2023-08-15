@@ -127,7 +127,6 @@
 #' medical record in the University of Pittsburgh's Patient Outcomes Repository
 #' for Treatment registry (PORT).
 #'
-#'
 #' @source Alter, B. J., Anderson, N. P., Gillman, A. G., Yin, Q., Jeong, J. H.,
 #'  & Wasan, A. D. (2021). Hierarchical clustering by patient-reported pain
 #'  distribution alone identifies distinct chronic pain subgroups differing by
