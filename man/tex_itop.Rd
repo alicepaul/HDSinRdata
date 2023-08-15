@@ -59,18 +59,18 @@ Texas Health and Human Services ISTOP Statistics at the following link:
 To calculate abortion rates, total female populations between the ages of 15
 and 44 were retrieved using the tidycensus package in R:
 
-\url{https://cran.r-project.org/web/packages/tidycensus/index.html}
+\url{https://CRAN.R-project.org/package=tidycensus}
 
 Census codes for females between the ages of 15 and 44 by each race/ethnicity
 were retrieved from the following website:
 
 \url{https://api.census.gov/data/2020/dec/dhc/variables.html}.
 
-Information on whether counties are categorized as rural or urban according
-to the Texas Department of Housing and Community Affairs was obtained from
-the following link:
+Information on whether counties are categorized as rural or urban was
+obtained from the 2022 Index of Texas Counties from the Texas Department of
+Housing and Community Affairs:
 
-\url{https://www.tdhca.state.tx.us/home-division/docs/22-IndexCounties.pdf}
+\url{https://www.tdhca.state.tx.us/home-division}
 
 The 2013 Rural-Urban Continuum Codes from the U.S. Department of Agriculture
 were obtained from the following site:

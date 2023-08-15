@@ -4,9 +4,9 @@
 \name{HDSinRdata-package}
 \alias{HDSinRdata}
 \alias{HDSinRdata-package}
-\title{HDSinRdata: Data Package for the 'R for Health Data Science' Online Textbook}
+\title{HDSinRdata: Data Package for the 'Health Data Science in R' Online Textbook}
 \description{
-This package contains seven datasets used in the chapters and exercises of the 'R for Health Data Science' Online Textbook.
+This package contains seven datasets used in the chapters and exercises of the 'Health Data Science in R' Online Textbook.
 }
 \author{
 \strong{Maintainer}: Joanna Walsh \email{joanna_walsh@brown.edu}

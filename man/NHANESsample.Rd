@@ -69,7 +69,7 @@ A data frame with 31,265 rows and 15 variables:
 }
 \source{
 Data was obtained from the nhanesA package
-\url{https://cran.r-project.org/web/packages/nhanesA/vignettes/Introducing_nhanesA.html}.
+\url{https://CRAN.R-project.org/package=nhanesA}.
 
 Variable selection and feature engineering were conducted in an effort to
 replicate the analyses conducted by
