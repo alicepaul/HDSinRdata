@@ -6,7 +6,7 @@
 \alias{HDSinRdata-package}
 \title{HDSinRdata: Data Package for the 'Health Data Science in R' Online Textbook}
 \description{
-This package contains seven datasets used in the chapters and exercises of the 'Health Data Science in R' Online Textbook.
+Contains seven datasets used in the chapters and exercises of the 'Health Data Science in R' Online Textbook.
 }
 \author{
 \strong{Maintainer}: Joanna Walsh \email{joanna_walsh@brown.edu}
