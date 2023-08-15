@@ -61,9 +61,9 @@
 #'
 #' All feature values are recoded with four significant digits.
 #'
-#' @source Wolberg,WIlliam. (1992). Breast Cancer Wisconsin (Original). 
-#' UCI Machine Learning Repository. https://doi.org/10.24432/C5HP4Z. 
-#' 
+#' @source Wolberg,William. (1992). Breast Cancer Wisconsin (Original).
+#' UCI Machine Learning Repository. https://doi.org/10.24432/C5HP4Z.
+#'
 #' Obtained from the UC Irvine Machine Learning Repository:
 #' \url{https://archive.ics.uci.edu/dataset/15/breast+cancer+wisconsin+original}
 "breastcancer"

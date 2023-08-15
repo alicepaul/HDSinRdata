@@ -335,7 +335,7 @@ final_df$BMIcat <- cut(final_df$BMI, c(-Inf, 25, 30, Inf),
                                   "BMI>=30"))
 
 #calculate single diastolic blood pressure measure
-for(i in 1:nrow(final_df)){
+for(i in 1:seq_len(nrow(final_df))){
   final_df$DBP[i] <- ifelse(is.na(final_df$DBP4[i]),
                             ifelse(is.na(final_df$DBP3[i]),
                                    ifelse(is.na(final_df$DBP2[i]),
@@ -362,7 +362,7 @@ for(i in 1:nrow(final_df)){
 }
 
 #calculate single systolic blood pressure measure
-for(i in 1:nrow(final_df)){
+for(i in 1:seq_len(nrow(final_df))){
   final_df$SBP[i] <- ifelse(is.na(final_df$SBP4[i]),
                             ifelse(is.na(final_df$SBP3[i]),
                                    ifelse(is.na(final_df$SBP2[i]),
@@ -396,21 +396,21 @@ final_df$quantile <- cut(final_df$lead, breaks = c(-Inf, quantiles, Inf),
 
 
 #add column that details whether patient has hypertension
-for(i in 1:nrow(final_df)){
+for(i in 1:seq_len(nrow(final_df))){
   if(is.na(final_df$BPQ020[i]) | is.na(final_df$BPQ040A[i])) {
     if(final_df$SBP[i] >= 130 | final_df$DBP[i] >= 80){
-      final_df$HYP[i] = 1
+      final_df$HYP[i] <- 1
     } else {
-      final_df$HYP[i] = 0
+      final_df$HYP[i] <- 0
     }
   } else if(!is.na(final_df$BPQ020[i]) & !is.na(final_df$BPQ040A[i]) &
             (final_df$BPQ020[i] == 1 | final_df$BPQ040A[i] == 1)){
-    final_df$HYP[i] = 1
+    final_df$HYP[i] <- 1
   } else {
     if(final_df$SBP[i] >= 130 | final_df$DBP[i] >= 80){
-      final_df$HYP[i] = 1
+      final_df$HYP[i] <- 1
     } else {
-      final_df$HYP[i] = 0
+      final_df$HYP[i] <- 0
     }
   }
 }

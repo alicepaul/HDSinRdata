@@ -79,7 +79,8 @@ nyts <- nyts %>%
                      QN157A + QN157B + QN157C + QN157D - 4 >=6 &
                      QN157A + QN157B + QN157C + QN157D - 4 <= 8 ~ "moderate",
                      QN157A + QN157B + QN157C + QN157D - 4 >=9 &
-                     QN157A + QN157B + QN157C + QN157D - 4 <= 12 ~ "severe")) %>%
+                     QN157A + QN157B + QN157C + QN157D - 4 <= 12 ~
+                       "severe")) %>%
   select(-c(QN157A, QN157B, QN157C, QN157D))
 
 #clean family affluence
@@ -112,8 +113,8 @@ nyts <- nyts %>% mutate(
 #clean perceived tobacco use
 nyts <- nyts %>% rename(perceived_cigarette_use = QN125,
                         perceived_e_cig_use = QN126)
-nyts$perceived_cigarette_use = (nyts$perceived_cigarette_use - 1)/10
-nyts$perceived_e_cig_use = (nyts$perceived_e_cig_use - 1)/10
+nyts$perceived_cigarette_use <- (nyts$perceived_cigarette_use - 1)/10
+nyts$perceived_e_cig_use <- (nyts$perceived_e_cig_use - 1)/10
 
 #clean how they got them
 nyts <- nyts %>%
