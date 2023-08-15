@@ -1,4 +1,4 @@
-Package: RforHDSdata
+Package: HDSinRdata
 Type: Package
 Title: Data Package for the 'R for Health Data Science' Online Textbook
 Version: 0.1.0
