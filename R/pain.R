@@ -106,19 +106,14 @@
 #'   \item{MEDICAID_BIN}{Medicaid payor: "yes" or "no"}
 #' }
 #'
-#' \if{html}{<p>Here is a key for the coded body pain regions
-#' (S2 Fig from the linked paper): </p>
-#' </p>
+#' \if{html}{Here is a key for the coded body pain regions
+#' (S2 Fig from the linked paper):
 #'   \out{<div style=“text-align: center”>}\figure{bodypainmap.png}\out{</div>}
-#' </p>
 #' }
 #' \if{latex}{Here is a key for the coded body pain regions
 #' (S2 Fig from the linked paper):
-#'
 #'   \out{\begin{center}}\figure{bodypainmap.png}\out{\end{center}}
-#'
 #' }
-#'
 #' Note that, as described in the paper, PROMIS is short for Patient-Reported
 #' Outcomes Measurement Information System: the source of the validated
 #' instruments for pain assessment used in the adaptive computerized test given
