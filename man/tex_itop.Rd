@@ -68,9 +68,7 @@ were retrieved from the following website:
 
 Information on whether counties are categorized as rural or urban was
 obtained from the 2022 Index of Texas Counties from the Texas Department of
-Housing and Community Affairs:
-
-\url{https://www.tdhca.state.tx.us/home-division}
+Housing and Community Affairs.
 
 The 2013 Rural-Urban Continuum Codes from the U.S. Department of Agriculture
 were obtained from the following site:
