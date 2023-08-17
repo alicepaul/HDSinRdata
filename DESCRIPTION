@@ -1,6 +1,6 @@
 Package: HDSinRdata
 Type: Package
-Title: Data Package for the 'Health Data Science in R' Online Textbook
+Title: Data for the 'Health Data Science in R' Online Textbook
 Version: 0.1.0
 Authors@R: c(person(given = "Alice",
            family = "Paul",
@@ -18,7 +18,7 @@ Authors@R: c(person(given = "Alice",
            role = c("ctb"))
            )
 Maintainer: Joanna Walsh <joanna_walsh@brown.edu>
-Description: Contains seven datasets used in the chapters and exercises of the 'Health Data Science in R' Online Textbook.
+Description: Contains seven datasets used in the chapters and exercises of Paul, Alice (2023) "Health Data Science in R" <https://alicepaul.github.io/health-data-science-in-r/>.
 License: CC BY 4.0
 Encoding: UTF-8
 LazyData: true
