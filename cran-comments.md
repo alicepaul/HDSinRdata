@@ -1,5 +1,6 @@
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
+0 errors | 0 warnings | 0 notes
 
-* This is a new release.
+* This submission reflects a change in the maintainer of this package 
+(an email was sent about this change as well). 

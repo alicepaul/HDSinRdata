@@ -9,11 +9,11 @@
 Contains seven datasets used in the chapters and exercises of Paul, Alice (2023) "Health Data Science in R" \url{https://alicepaul.github.io/health-data-science-in-r/}.
 }
 \author{
-\strong{Maintainer}: Joanna Walsh \email{joanna_walsh@brown.edu}
+\strong{Maintainer}: Alice Paul \email{alice_paul@brown.edu}
 
 Authors:
 \itemize{
-  \item Alice Paul \email{alice_paul@brown.edu}
+  \item Joanna Walsh \email{joanna_walsh@brown.edu}
 }
 
 Other contributors:
