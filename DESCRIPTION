@@ -1,7 +1,7 @@
 Package: HDSinRdata
 Type: Package
 Title: Data for the 'Health Data Science in R' Online Textbook
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: c(person(given = "Alice",
            family = "Paul",
            role = c("aut", "cre"),
