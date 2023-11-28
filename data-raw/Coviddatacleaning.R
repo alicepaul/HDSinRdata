@@ -1,4 +1,5 @@
 library(readxl)
+library(openxlsx)
 library(tidyverse)
 library(COVID19)
 
@@ -43,7 +44,8 @@ covidcases <- covidcases %>%
   group_by(administrative_area_level_2, administrative_area_level_3, week) %>%
   slice(1) %>% select(-c(date, confirmed, deaths)) %>%
   rename(state = administrative_area_level_2,
-         county = administrative_area_level_3)
+         county = administrative_area_level_3) %>%
+  ungroup()
 
 #save
 usethis::use_data(covidcases, overwrite = TRUE)
