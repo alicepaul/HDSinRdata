@@ -88,16 +88,24 @@ usethis::use_data(mobility, overwrite = TRUE)
 
 ## Lockdown Data ##
 
-#read in data (created by hand in excel using the dates from ballotpedia)
-lockdowndates <- read_excel("LockdownData.xlsx")
+#read in data
+path <- "COVID-19 US state policy database 3_30_2022.xlsx"
+cols <- as.character(read_excel(path, n_max = 1, col_names = FALSE))
+lockdowndates <- read_excel(path, skip = 5, col_names = cols, na="0")
 
-#convert the dates to the correct form
-lockdowndates$Lockdown_Start[lockdowndates$Lockdown_Start != "None"] <-
-  as.character(convertToDate(as.numeric(
-    lockdowndates$Lockdown_Start[lockdowndates$Lockdown_Start != "None"])))
-lockdowndates$Lockdown_End[lockdowndates$Lockdown_End != "None"] <-
-  as.character(convertToDate(as.numeric(
-    lockdowndates$Lockdown_End[lockdowndates$Lockdown_End != "None"])))
+#select cols and get single start
+lockdowndates <- lockdowndates %>%
+  mutate(STAYHOME = as.character(STAYHOME),
+         STAYHOMENOGP = as.character(STAYHOMENOGP),
+         END_STHM = as.character(END_STHM)
+         ) %>%
+  mutate(Lockdown_Start = ifelse(is.na(STAYHOME), STAYHOMENOGP,
+                                 STAYHOME)) %>%
+  rename(State=STATE, Lockdown_End = END_STHM) %>%
+  select(State, Lockdown_Start, Lockdown_End) 
+
+#convert NAs to None
+lockdowndates[is.na(lockdowndates)] <- "None"
 
 #save
 usethis::use_data(lockdowndates, overwrite = TRUE)
