@@ -1,6 +1,6 @@
 #' US Covid Data from the Covid-19 Data Hub
 #'
-#' Weekly confirmed Covid-19 cases and deaths at the state and city level in
+#' Weekly confirmed Covid-19 cases and deaths at the state and county level in
 #' 2020, downloaded from the COVID19 R package.
 #'
 #' @format A data frame with 69,530 rows and 5 variables.
