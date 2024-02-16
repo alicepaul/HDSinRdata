@@ -34,7 +34,7 @@ Journal of Open Source Software 5(51):2376, doi:10.21105/joss.02376"
 covidcases
 }
 \description{
-Weekly confirmed Covid-19 cases and deaths at the state and city level in
+Weekly confirmed Covid-19 cases and deaths at the state and county level in
 2020, downloaded from the COVID19 R package.
 }
 \keyword{datasets}

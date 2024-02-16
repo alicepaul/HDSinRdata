@@ -15,9 +15,13 @@ A data frame with 50 rows and 3 variables:
 }
 }
 \source{
-States that issued lockdown and stay-at-home orders in response to the 
-coronavirus (COVID-19) pandemic, 2020.
-\url{https://ballotpedia.org/States_that_issued_lockdown_and_stay-at-home_orders_in_response_to_the_coronavirus_(COVID-19)_pandemic,_2020}
+Raifman, J., Nocka, K., Jones, D., Bor, J., Lipson, S., 
+Jay, J., Cole, M., Krawczyk, N., Benfer, E. A.,  Chan, P.,  Galea, S. (2022). 
+COVID-19 US State Policy Database. Ann Arbor, MI: 
+Inter-university Consortium for Political and Social Research [distributor], 
+2022-03-30. https://doi.org/10.3886/E119446V143
+ 
+\url{https://www.openicpsr.org/openicpsr/project/119446/version/V143/view}
 }
 \usage{
 lockdowndates
