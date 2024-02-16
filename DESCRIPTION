@@ -18,7 +18,7 @@ Authors@R: c(person(given = "Alice",
            role = c("ctb"))
            )
 Maintainer: Alice Paul <alice_paul@brown.edu>
-Description: Contains seven datasets used in the chapters and exercises of Paul, Alice (2023) "Health Data Science in R" <https://alicepaul.github.io/health-data-science-using-r/>.
+Description: Contains nine datasets used in the chapters and exercises of Paul, Alice (2023) "Health Data Science in R" <https://alicepaul.github.io/health-data-science-using-r/>.
 License: CC BY 4.0
 Encoding: UTF-8
 LazyData: true
