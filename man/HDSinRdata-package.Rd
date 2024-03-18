@@ -6,13 +6,14 @@
 \alias{HDSinRdata-package}
 \title{HDSinRdata: Data for the 'Mastering Health Data Science Using R' Online Textbook}
 \description{
-Contains seven datasets used in the chapters and exercises of Paul, Alice (2023) "Health Data Science in R" \url{https://alicepaul.github.io/health-data-science-using-r/}.
+Contains ten datasets used in the chapters and exercises of Paul, Alice (2023) "Health Data Science in R" \url{https://alicepaul.github.io/health-data-science-using-r/}.
 }
 \author{
 \strong{Maintainer}: Alice Paul \email{alice_paul@brown.edu}
 
 Authors:
 \itemize{
+  \item Hannah Eglinton \email{hannah_eglinton@brown.edu}
   \item Joanna Walsh \email{joanna_walsh@brown.edu}
 }
 
