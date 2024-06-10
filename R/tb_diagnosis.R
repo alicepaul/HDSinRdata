@@ -35,10 +35,10 @@
 #' tuberculosis while awaiting microbiological results: Development and
 #' validation of a multivariable prediction model in sub-Saharan Africa. PLoS
 #' medicine, 17(11), e1003420.
-#' \url{https://doi.org/10.1371/journal.pmed.1003420}
+#' \doi{10.1371/journal.pmed.1003420}
 #'
 #' The data are held in the Johns Hopkins University
 #' Data Services database and available at
-#' \url{https://doi.org/10.7281/T1/W2AG3A}.
+#' \doi{10.7281/T1/W2AG3A}.
 "tb_diagnosis"
 

@@ -207,7 +207,7 @@ A data frame with 20,413 rows and 35 variables:
 \source{
 Data was downloaded from the CDC's website at the following link:
 
-\url{https://www.cdc.gov/tobacco/data_statistics/surveys/nyts/data/index.html}.
+\url{https://www.cdc.gov/tobacco/about-data/surveys/national-youth-tobacco-survey.html}.
 
 Variables were selected and defined in a similar manner to those in
 

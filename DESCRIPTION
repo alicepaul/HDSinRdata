@@ -1,7 +1,7 @@
 Package: HDSinRdata
 Type: Package
 Title: Data for the 'Mastering Health Data Science Using R' Online Textbook
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: c(person(given = "Alice",
            family = "Paul",
            role = c("aut", "cre"),
@@ -29,4 +29,4 @@ LazyData: true
 LazyDataCompression: xz
 Depends: 
     R (>= 2.10)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1

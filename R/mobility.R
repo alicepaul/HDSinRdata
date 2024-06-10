@@ -21,7 +21,7 @@
 #' and was not released."
 #'
 #' @source Data was obtained from Descartes Labs
-#' \url{https://descarteslabs.com/resources/}
+#' \url{https://descarteslabs.com}
 #'
 #' Warren, Michael S. & Skillman, Samuel W. "Mobility Changes in Response to
 #' COVID-19". arXiv:2003.14228 [cs.SI], Mar. 2020. arxiv.org/abs/2003.14228
