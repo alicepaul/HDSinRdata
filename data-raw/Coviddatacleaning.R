@@ -30,8 +30,6 @@ covidcases$week <- week(covidcases$date)
 
 #create variables for daily cases and daily deaths
 covidcases <- covidcases %>%
-  filter(administrative_area_level_2 == "Massachusetts",
-         administrative_area_level_3 == "Middlesex") %>%
   group_by(administrative_area_level_2, administrative_area_level_3, week) %>%
   arrange(date) %>%
   filter(row_number()==n()) %>%
