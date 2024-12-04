@@ -1,4 +1,3 @@
-# overviewR 0.1.2
+# overviewR 0.1.3
 
-Added new raw version of tuberculosis dataset
-Updated broken links
+Fixed bug in covid case and death data

@@ -30,21 +30,22 @@ covidcases$week <- week(covidcases$date)
 
 #create variables for daily cases and daily deaths
 covidcases <- covidcases %>%
+  filter(administrative_area_level_2 == "Massachusetts",
+         administrative_area_level_3 == "Middlesex") %>%
   group_by(administrative_area_level_2, administrative_area_level_3, week) %>%
   arrange(date) %>%
-  filter(row_number()==1 | row_number()==n()) %>%
+  filter(row_number()==n()) %>%
   ungroup() %>%
   group_by(administrative_area_level_2, administrative_area_level_3) %>%
-  mutate(weekly_cases = ifelse(lead(confirmed) - confirmed == 0,
+  mutate(weekly_cases = ifelse(is.na(lag(confirmed)),
                                confirmed,
-                               lead(confirmed) - confirmed),
-         weekly_deaths = ifelse(lead(deaths) - deaths == 0,
+                               confirmed - lag(confirmed)),
+         weekly_deaths = ifelse(is.na(lag(deaths)),
                                 deaths,
-                                lead(deaths) - deaths)) %>%
-  group_by(administrative_area_level_2, administrative_area_level_3, week) %>%
-  slice(1) %>% select(-c(date, confirmed, deaths)) %>%
+                                deaths - lag(deaths))) %>%
   rename(state = administrative_area_level_2,
          county = administrative_area_level_3) %>%
+  select(-c(date, confirmed, deaths)) %>%
   ungroup()
 
 #save
@@ -102,7 +103,7 @@ lockdowndates <- lockdowndates %>%
   mutate(Lockdown_Start = ifelse(is.na(STAYHOME), STAYHOMENOGP,
                                  STAYHOME)) %>%
   rename(State=STATE, Lockdown_End = END_STHM) %>%
-  select(State, Lockdown_Start, Lockdown_End) 
+  select(State, Lockdown_Start, Lockdown_End)
 
 #convert NAs to None
 lockdowndates[is.na(lockdowndates)] <- "None"
