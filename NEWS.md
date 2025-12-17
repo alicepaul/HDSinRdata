@@ -1,3 +1,3 @@
 # HDSinRdata 0.2.0
 
-Update HTML figure width
+Update Latex figure width and fixed links

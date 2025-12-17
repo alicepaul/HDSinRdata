@@ -54,7 +54,7 @@ annual data were compiled."
 Abortion counts by county and race/ethnicity were obtained from
 Texas Health and Human Services ISTOP Statistics at the following link:
 
-\url{https://www.hhs.texas.gov/about/records-statistics/data-statistics/itop-statistics}
+\url{https://www.hhs.texas.gov/about/records-statistics/data-statistics/texas-induced-terminations-pregnancy-statistics}
 
 To calculate abortion rates, total female populations between the ages of 15
 and 44 were retrieved using the tidycensus package in R:
@@ -73,7 +73,7 @@ Housing and Community Affairs.
 The 2013 Rural-Urban Continuum Codes from the U.S. Department of Agriculture
 were obtained from the following site:
 
-\url{https://www.ers.usda.gov/data-products/rural-urban-continuum-codes/}
+\url{https://www.ers.usda.gov/data-products/rural-urban-continuum-codes}
 }
 \usage{
 tex_itop
